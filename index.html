@@ -1,1 +1,1378 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Huntera Track · Roda do Destino</title><meta name="description" content="Calculadora da Roda do Destino (Wheel of Destiny) do Huntera: escolha vocação e nível e veja a melhor build, os perks e a ordem para colocar no jogo."><meta property="og:title" content="Huntera Track · Roda do Destino"><meta property="og:description" content="Melhor build da Roda do Destino para EK, RP, MS e ED, pelo seu nível."><meta property="og:type" content="website"><meta name="theme-color" content="#0F0F0F"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 16L16 2A14 14 0 0 0 2 16Z' fill='%234E8B12'/%3E%3Cpath d='M16 16L30 16A14 14 0 0 0 16 2Z' fill='%23B23A2E'/%3E%3Cpath d='M16 16L16 30A14 14 0 0 0 30 16Z' fill='%237A3FA8'/%3E%3Cpath d='M16 16L2 16A14 14 0 0 0 16 30Z' fill='%232B66B8'/%3E%3C/svg%3E"><style>:root{padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0)}img{max-width:100%}[hidden]{display:none!important}</style></head><body><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=IBM+Plex+Sans:wght@400;500;600&display=swap"><style>:root{--bg:#F5F3EE;--surface:#FAFAF7;--surface-2:#ECE8DF;--line:#D9D3C6;--fg:#1A1A1A;--muted:#5E5A52;--accent:#8A6417;--accent-soft:#F1E4C6;--on-accent:#FAFAFA;--on-slice:#FAFAFA;--green:#4E8B12;--red:#B23A2E;--purple:#7A3FA8;--blue:#2B66B8;--warn:#9A5B00;--font-display:"Marcellus","Palatino Linotype",Georgia,serif;--font-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif}@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0F0F0F;--surface:#1A1A1A;--surface-2:#24221E;--line:#34312B;--fg:#F5F5F5;--muted:#B3AC9F;--accent:#D9AE55;--accent-soft:#3A2F18;--on-accent:#1A1A1A;--on-slice:#0F0F0F;--green:#8BC34A;--red:#E57361;--purple:#B58BDB;--blue:#6FA3E8;--warn:#E8B04A;color-scheme:dark}}:root[data-theme=dark]{--bg:#0F0F0F;--surface:#1A1A1A;--surface-2:#24221E;--line:#34312B;--fg:#F5F5F5;--muted:#B3AC9F;--accent:#D9AE55;--accent-soft:#3A2F18;--on-accent:#1A1A1A;--on-slice:#0F0F0F;--green:#8BC34A;--red:#E57361;--purple:#B58BDB;--blue:#6FA3E8;--warn:#E8B04A;color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 var(--font-body)}.wrap{max-width:1200px;margin:0 auto;padding-block:24px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:24px}h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.2;margin:0;text-wrap:balance}h1{font-size:32px}h2{font-size:24px}h3{font-size:16px;font-family:var(--font-body);font-weight:600}p{margin:0}.muted{color:var(--muted)}.small{font-size:12px}.num{font-variant-numeric:tabular-nums}.label{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}header.top{display:grid;gap:8px}header.top p{max-width:68ch}.controls{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;padding:16px;background:var(--surface);border:1px solid var(--line);border-radius:12px}.field{display:grid;gap:4px;min-width:0}.seg{display:flex;flex-wrap:wrap;gap:4px}.seg button{height:40px;padding:0 12px;border-radius:8px;border:1px solid var(--line);background:0 0;color:var(--fg);font:inherit;cursor:pointer}.seg button:hover{background:var(--surface-2)}.seg button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}input[type=number],select{height:40px;padding:0 12px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:inherit;min-width:0}input[type=number]{width:112px}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}.pts{display:grid;gap:4px;margin-left:auto;text-align:right}.pts strong{font-size:24px;font-variant-numeric:tabular-nums;font-weight:600}.result{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}@media (max-width:860px){.result{grid-template-columns:1fr}}.wheel-box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:12px}.wheel-box svg{width:100%;max-width:560px;height:auto;margin:0 auto;display:block}.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:4px}.sw{width:12px;height:12px;border-radius:3px;display:inline-block}.panel{display:grid;gap:16px;min-width:0}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:8px}.stat{padding:12px;background:var(--surface);border:1px solid var(--line);border-radius:8px;display:grid;gap:4px}.stat b{font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}.block{display:grid;gap:8px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{display:inline-flex;align-items:center;gap:8px;padding:4px 12px;border-radius:999px;background:var(--surface-2);font-size:12px}.chip.on{background:var(--accent-soft)}.chip i{font-style:normal;color:var(--muted)}.rev{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}.rev div{padding:12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);display:grid;gap:4px;border-left-width:4px}.rev .pips{display:flex;gap:4px}.rev .pip{width:16px;height:4px;border-radius:2px;background:var(--line)}.rev .pip.on{background:currentColor}.steps-box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:12px}.steps-head{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between}.table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}td,th{text-align:left;padding:8px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:500}tr.later td{color:var(--muted)}tr.later td:first-child::after{content:" · depois";font-size:12px}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:middle}.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}@media (max-width:860px){.grid2{grid-template-columns:1fr}}.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:12px;min-width:0}.bar{height:8px;border-radius:4px;background:var(--surface-2);overflow:hidden}.bar i{display:block;height:100%;background:var(--accent)}.weights{display:grid;gap:12px}.weights label{display:grid;grid-template-columns:96px 1fr 40px;gap:12px;align-items:center}input[type=range]{width:100%;accent-color:var(--accent)}.btn{height:40px;padding:0 16px;border-radius:8px;border:1px solid var(--line);background:0 0;color:var(--fg);font:inherit;cursor:pointer;justify-self:start}.btn:hover{background:var(--surface-2)}.note{padding:12px 16px;border-radius:8px;background:var(--accent-soft);font-size:14px}.busy{opacity:.55;transition:opacity .15s}@media (prefers-reduced-motion:reduce){.busy{transition:none}}</style><div class="wrap"><header class="top"><span class="label">Huntera Track · Wheel of Destiny</span><h1>Roda do Destino</h1><p class="muted">Escolha a vocação e o nível: o painel calcula a melhor distribuição dos pontos usando as regras reais da roda do Huntera (fatias, desbloqueios, magias aumentadas e perks de revelação) e mostra a ordem para colocar no jogo.</p></header><section class="controls" aria-label="Escolhas"><div class="field"><span class="label" id="lbl-voc">Vocação</span><div class="seg" role="group" aria-labelledby="lbl-voc" id="voc"></div></div><div class="field"><label class="label" for="level">Nível</label> <input id="level" type="number" min="51" max="4050" step="1" value="216" inputmode="numeric"></div><div class="field"><label class="label" for="target">Planejar até o nível</label> <input id="target" type="number" min="51" max="4050" step="1" value="216" inputmode="numeric"></div><div class="field"><label class="label" for="profile">Objetivo da build</label> <select id="profile"></select></div><div class="pts"><span class="label">Pontos agora</span> <strong id="pts-now">166</strong> <span class="small muted" id="quality" aria-live="polite">Calculando…</span></div></section><section class="result" id="result"><div class="wheel-box"><svg id="wheel" viewBox="0 0 520 520" role="img" aria-label="Roda do Destino com os pontos da build"></svg><div class="legend" id="legend"></div></div><div class="panel"><div class="stats" id="stats"></div><div class="block"><h3>Magias aumentadas</h3><div class="chips" id="spells"></div></div><div class="block"><h3>Perks de dedicação e convicção</h3><div class="chips" id="perks"></div></div><div class="block"><h3>Revelação (por cor)</h3><div class="rev" id="rev"></div></div></div></section><section class="steps-box"><div class="steps-head"><div class="block"><h2>Passo a passo no jogo</h2><p class="muted small">Encha as fatias nesta ordem (botão direito enche a fatia). Cada linha já está liberada quando chega a vez dela. As linhas marcadas "depois" são do nível planejado.</p></div><p class="small muted" id="reset-note">Resetar a roda custa 949.000 de gold. Planeje antes de salvar.</p></div><div class="table-scroll"><table><thead><tr><th>#</th><th>Fatia</th><th>Pontos</th><th>O que libera</th><th>Total usado</th></tr></thead><tbody id="steps"></tbody></table></div></section><section class="grid2"><div class="card"><h2>Comparar objetivos</h2><p class="muted small">A mesma vocação e nível otimizados para cada objetivo. O valor é relativo ao objetivo escolhido acima.</p><div id="compare" class="block"></div></div><div class="card"><h2>Ajustar pesos</h2><p class="muted small">Quanto cada tipo de bônus vale para você. Os perfis já vêm calibrados; mexa se quiser outra prioridade.</p><div class="weights" id="weights"></div><button class="btn" id="reset-w" type="button">Voltar ao perfil</button></div></section><p class="note small">Regras e números da roda vêm do cliente oficial do Huntera e foram conferidos contra as próprias funções do jogo. O que é estimativa é o peso de cada bônus (por exemplo, quanto vale +10% numa magia versus um perk de revelação), porque o jogo não publica o dano de cada magia. Por isso dá para ajustar os pesos.</p><footer class="small muted">Huntera Track é uma ferramenta feita por jogador, sem ligação oficial com a equipe do Huntera. Não joga por você nem pede login.</footer></div><script id="engine">!function(e){"use strict";const t=["green","red","purple","blue"],n={50:1,75:2,100:3,150:4,200:5},a=(e,t,a,o,i,r)=>({index:e,color:t,tier:a,ring:n[a],pos:o,stat:i,full:r}),o=[a(0,"green",200,0,"vitals",{kind:"dedication"}),a(1,"green",150,0,"mitigation",{kind:"mana-leech"}),a(2,"green",100,0,"health",{kind:"vessel"}),a(3,"red",100,0,"mana",{kind:"skill"}),a(4,"red",150,0,"health",{kind:"vessel"}),a(5,"red",200,0,"vitals",{kind:"spell",spell:"C"}),a(6,"green",150,1,"mitigation",{kind:"vessel"}),a(7,"green",100,1,"health",{kind:"spell",spell:"A"}),a(8,"green",75,0,"mana",{kind:"life-leech"}),a(9,"red",75,0,"capacity",{kind:"vessel"}),a(10,"red",100,1,"mana",{kind:"spell",spell:"D"}),a(11,"red",150,1,"health",{kind:"mana-leech"}),a(12,"green",100,2,"health",{kind:"spell",spell:"B"}),a(13,"green",75,1,"mana",{kind:"skill"}),a(14,"green",50,0,"capacity",{kind:"vessel"}),a(15,"red",50,0,"mitigation",{kind:"spell",spell:"E"}),a(16,"red",75,1,"capacity",{kind:"life-leech"}),a(17,"red",100,2,"mana",{kind:"vessel"}),a(18,"blue",100,0,"mitigation",{kind:"vessel"}),a(19,"blue",75,0,"health",{kind:"mana-leech"}),a(20,"blue",50,0,"mana",{kind:"spell",spell:"C"}),a(21,"purple",50,0,"health",{kind:"vessel"}),a(22,"purple",75,0,"mitigation",{kind:"skill"}),a(23,"purple",100,0,"capacity",{kind:"spell",spell:"A"}),a(24,"blue",150,0,"capacity",{kind:"life-leech"}),a(25,"blue",100,1,"mitigation",{kind:"spell",spell:"D"}),a(26,"blue",75,1,"health",{kind:"vessel"}),a(27,"purple",75,1,"mitigation",{kind:"mana-leech"}),a(28,"purple",100,1,"capacity",{kind:"spell",spell:"B"}),a(29,"purple",150,0,"mana",{kind:"vessel"}),a(30,"blue",200,0,"vitals",{kind:"spell",spell:"E"}),a(31,"blue",150,1,"capacity",{kind:"vessel"}),a(32,"blue",100,2,"mitigation",{kind:"skill"}),a(33,"purple",100,2,"capacity",{kind:"vessel"}),a(34,"purple",150,1,"mana",{kind:"life-leech"}),a(35,"purple",200,0,"vitals",{kind:"dedication"})],i=[1,2,3,2,1],r={50:0,75:50,100:125,150:225,200:375},s=[["green","top","red","top"],["green","bottom","blue","top"],["red","bottom","purple","top"],["purple","bottom","blue","bottom"]],l={knight:{health:3,mana:1,capacity:5},paladin:{health:2,mana:3,capacity:4},sorcerer:{health:1,mana:6,capacity:2},druid:{health:1,mana:6,capacity:2}},d=.08,c=[250,500,1e3],u=[4,9,20],f={knight:{green:"Battle Instinct",purple:"Battle Healing"},paladin:{green:"Positional Tactics",purple:"Ballistic Mastery"},sorcerer:{green:"Runic Mastery",purple:"Focus Mastery"},druid:{green:"Healing Link",purple:"Runic Mastery"}},p={knight:{green:"Gift of Life",red:"Executioner's Throw",purple:"Avatar of Steel",blue:"Combat Mastery"},paladin:{green:"Gift of Life",red:"Divine Grenade",purple:"Avatar of Light",blue:"Divine Empowerment"},sorcerer:{green:"Gift of Life",red:"Beam Mastery",purple:"Avatar of Storm",blue:"Drain Body"},druid:{green:"Gift of Life",red:"Blessing of the Grove",purple:"Avatar of Nature",blue:"Twin Burst"}};function m(e,t,n){const a=o.find(a=>a.color===e&&a.ring===t&&a.pos===n);if(!a)throw new Error(`wheel slot ${e}/${t}/${n} missing`);return a.index}const h=(()=>{const e=o.map(()=>new Set),n=(t,n)=>{e[t].add(n),e[n].add(t)};for(const e of t)for(let t=1;t<=5;t++){const a=i[t-1];for(let o=0;o<a;o++){const r=m(e,t,o);if(o+1<a&&n(r,m(e,t,o+1)),t<5){const s=i[t];for(let i=0;i<s;i++)Math.min((o+1)/a,(i+1)/s)-Math.max(o/a,i/s)>1e-9&&n(r,m(e,t+1,i))}}}for(const[e,t,a,o]of s)for(const r of[2,3]){const s=i[r-1];n(m(e,r,"top"===t?0:s-1),m(a,r,"top"===o?0:s-1))}return e.map(e=>[...e].sort((e,t)=>e-t))})();function g(e,t){const n=o.map(t=>(e[t.index]||0)>=t.tier),a=o.map(e=>50===e.tier),i=[];for(const e of o)50===e.tier&&n[e.index]&&i.push(e.index);for(;i.length;){const e=i.pop();for(const s of h[e])a[s]||t<r[o[s].tier]||(a[s]=!0,n[s]&&i.push(s))}return a}function v(e,t){let n=0;for(const t of o){const a=e[t.index]||0;if(a<0||a>t.tier)return!1;n+=a}if(n>t)return!1;const a=g(e,t);return o.every(n=>!(e[n.index]>0)||a[n.index]&&t>=r[n.tier])}function k(e,n){const a=l[n],i={health:0,mana:0,capacity:0,mitigation:0,lifeLeech:0,manaLeech:0,skill:0,spells:{A:0,B:0,C:0,D:0,E:0},dedication:{green:!1,purple:!1},colorPoints:{green:0,red:0,purple:0,blue:0},stages:{green:0,red:0,purple:0,blue:0},flat:0};for(const t of o){const n=e[t.index]||0;if(n<=0)continue;if(i.colorPoints[t.color]+=n,"health"===t.stat?i.health+=a.health*n:"mana"===t.stat?i.mana+=a.mana*n:"capacity"===t.stat?i.capacity+=a.capacity*n:"mitigation"===t.stat?i.mitigation+=d*n:"vitals"===t.stat&&(i.health+=a.health*n,i.mana+=a.mana*n),n<t.tier)continue;const o=t.full.kind;"mana-leech"===o?i.manaLeech+=.25:"life-leech"===o?i.lifeLeech+=.75:"skill"===o||"vessel"===o?i.skill+=1:"spell"===o?i.spells[t.full.spell]+=1:"dedication"===o&&(i.dedication[t.color]=!0)}i.mitigation=Math.round(100*i.mitigation)/100;for(const e of t){let t=0;for(const n of c)i.colorPoints[e]>=n&&t++;i.stages[e]=t,t>0&&(i.flat+=u[t-1])}return i}const x={perPoint:{health:e=>({defesa:l[e].health/30}),mana:e=>({sustento:l[e].mana/60}),capacity:e=>({utilidade:l[e].capacity/400}),mitigation:()=>({defesa:.024})},lifeLeech:{sustento:1.2,defesa:.4},manaLeech:{sustento:1},skill:e=>"druid"===e?{dano:.6,cura:.6}:{dano:1.2},flatPerStage:[{dano:.5,cura:.5},{dano:1.1,cura:1.1},{dano:2.5,cura:2.5}],spells:{knight:{A:[{dano:2},{dano:3}],B:[{defesa:3,cura:1},{defesa:3}],C:[{dano:2},{dano:2}],D:[{sustento:.5},{utilidade:1,defesa:.5}],E:[{sustento:1.5},{dano:4}]},paladin:{A:[{dano:3},{dano:4}],B:[{defesa:.5},{defesa:.5}],C:[{dano:2},{dano:2}],D:[{utilidade:1,defesa:.5},{defesa:1}],E:[{sustento:1},{dano:4}]},sorcerer:{A:[{},{defesa:2}],B:[{dano:2},{dano:3}],C:[{dano:3},{dano:4}],D:[{defesa:1.5},{defesa:1.5}],E:[{dano:2},{dano:2}]},druid:{A:[{cura:2},{cura:2}],B:[{dano:2.5},{sustento:2}],C:[{dano:2.5},{dano:2}],D:[{cura:2},{cura:2}],E:[{cura:2},{cura:3}]}},dedication:{"Battle Instinct":{defesa:2,dano:1},"Battle Healing":{defesa:3,cura:1},"Positional Tactics":{dano:2,cura:.5},"Ballistic Mastery":{dano:3},"Runic Mastery":{dano:2},"Focus Mastery":{dano:5},"Healing Link":{cura:4}},revelation:{"Gift of Life":[{defesa:3},{defesa:4},{defesa:5}],"Executioner's Throw":[{dano:5},{dano:7},{dano:9}],"Combat Mastery":[{dano:3,defesa:2},{dano:4,defesa:3},{dano:5,defesa:4}],"Avatar of Steel":[{dano:6,defesa:2},{dano:8,defesa:4},{dano:10,defesa:6}],"Avatar of Light":[{dano:6,defesa:2},{dano:8,defesa:4},{dano:10,defesa:6}],"Avatar of Storm":[{dano:6,defesa:2},{dano:8,defesa:4},{dano:10,defesa:6}],"Avatar of Nature":[{dano:4,cura:2,defesa:2},{dano:6,cura:3,defesa:4},{dano:8,cura:4,defesa:6}],"Divine Grenade":[{dano:5},{dano:7},{dano:10}],"Divine Empowerment":[{dano:6},{dano:8},{dano:10}],"Beam Mastery":[{dano:6},{dano:8},{dano:10}],"Drain Body":[{sustento:3},{sustento:4},{sustento:5}],"Blessing of the Grove":[{cura:5},{cura:7},{cura:10}],"Twin Burst":[{dano:5},{dano:7},{dano:9}]}},b=(e,t)=>(e.dano||0)*t.dano+(e.defesa||0)*t.defesa+(e.cura||0)*t.cura+(e.sustento||0)*t.sustento+(e.utilidade||0)*t.utilidade;function w(e,n,a){const o=k(e,n);let i=0;const r=x.perPoint,s=l[n];i+=b(r.health(n),a)*(o.health/s.health),i+=b(r.mana(n),a)*(o.mana/s.mana),i+=b(r.capacity(n),a)*(o.capacity/s.capacity),i+=b(r.mitigation(),a)*(o.mitigation/d),i+=b(x.lifeLeech,a)*(o.lifeLeech/.75),i+=b(x.manaLeech,a)*(o.manaLeech/.25),i+=b(x.skill(n),a)*o.skill;for(const e of["A","B","C","D","E"]){const t=Math.min(2,o.spells[e]),r=x.spells[n][e];t>=1&&(i+=b(r[0],a)),t>=2&&(i+=b(r[1],a))}for(const e of["green","purple"])o.dedication[e]&&(i+=b(x.dedication[f[n][e]],a));for(const e of t){const t=o.stages[e];t>0&&(i+=b(x.flatPerStage[t-1],a),i+=b(x.revelation[p[n][e]][t-1],a))}return i}function y(e,t,n){const a=x.perPoint;return"vitals"===e.stat?b(a.health(t),n)+b(a.mana(t),n):"mitigation"===e.stat?b(a.mitigation(),n):b(a[e.stat](t),n)}function B(e,n,a,i){let s={points:e.slice(),value:w(e,a,i)};const l=e.reduce((e,t)=>e+t,0);let d=n-l;if(d<=0)return s;const c=g(e,n),u=o.filter(t=>c[t.index]&&n>=r[t.tier]&&e[t.index]<t.tier);if(!u.length)return s;const f=t=>{const n=e.slice();let o=d;for(const e of t){if(o<=0)break;const t=Math.min(o,e.tier-n[e.index]);n[e.index]+=t,o-=t}const r=w(n,a,i);r>s.value+1e-9&&(s={points:n,value:r})};f(u.slice().sort((e,t)=>y(t,a,i)-y(e,a,i)));for(const e of t)f(u.slice().sort((t,n)=>(n.color===e)-(t.color===e)||y(n,a,i)-y(t,a,i)));return s}function L(e,t,n,a={}){const i=Math.max(0,e-50),s=a.beam||600,l=o.map(()=>0);if(0===i)return{total:i,points:l,order:[],value:0};const d=Math.max(...o.map(e=>y(e,t,n))),c=a.start?a.start.slice():l;let u=[{points:c,order:[],spent:c.reduce((e,t)=>e+t,0)}],f=Object.assign({order:[]},B(c,i,t,n));const p=new Set;for(;u.length;){const e=[];for(const a of u){const s=g(a.points,i);for(const l of o){const o=a.points[l.index];if(o>=l.tier||!s[l.index]||i<r[l.tier])continue;const c=l.tier-o;if(a.spent+c>i)continue;const u=a.points.slice();u[l.index]=l.tier;const f=u.map(e=>e?1:0).join("");if(p.has(f))continue;p.add(f);const m=a.spent+c,h=w(u,t,n)+(i-m)*d;e.push({points:u,order:a.order.concat(l.index),spent:m,value:h,potential:P(u,i,m,t,n)})}}if(!e.length)break;const a=Math.ceil(s/2),l=e.slice().sort((e,t)=>t.value-e.value).slice(0,a),c=e.slice().sort((e,t)=>t.value+t.potential-(e.value+e.potential)).slice(0,s),m=new Map;for(const e of l.concat(c)){const t=e.points.join(",");if(m.has(t)||m.set(t,e),m.size>=s)break}u=[...m.values()];for(const e of u){const a=B(e.points,i,t,n);a.value>f.value+1e-9&&(f={points:a.points,value:a.value,order:e.order})}}return{total:i,points:f.points,order:a.noOrder?[]:T(f.points,i,f.order,t,n),value:f.value}}(()=>{const e={};for(const t of o)"spell"===t.full.kind&&(e[t.full.spell]=e[t.full.spell]||[]).push(t.index)})();function A(e,t,n,a){const i=o.filter(t=>t.color===e),s=new Map(i.map((e,t)=>[e.index,t])),l=i.findIndex(e=>50===e.tier),d=i.map(e=>t>=r[e.tier]),u=i.map(e=>h[e.index].filter(e=>s.has(e)).map(e=>s.get(e))),m=[...new Set(i.filter(e=>"spell"===e.full.kind).map(e=>e.full.spell))].sort(),g=1<<m.length,v=Math.min(t,1e3),k=new Float64Array((v+1)*g).fill(-1/0),w=new Int32Array((v+1)*g).fill(-1),B=i.map(e=>y(e,n,a)),L=i.map(e=>{const t=e.full.kind;return"mana-leech"===t?b(x.manaLeech,a):"life-leech"===t?b(x.lifeLeech,a):"skill"===t||"vessel"===t?b(x.skill(n),a):"dedication"===t?b(x.dedication[f[n][e.color]],a):0}),A=p[n][e],S=e=>{let t=0;for(const n of c)e>=n&&t++;return t?b(x.flatPerStage[t-1],a)+b(x.revelation[A][t-1],a):0},M=new Float64Array(v+1);for(let e=0;e<=v;e++)M[e]=S(e);const E=new Set([0]),D=[0],C=[];for(;D.length;){const e=D.pop();C.push(e);const t=new Set([l]);for(let n=0;n<i.length;n++)if(e&1<<n)for(const e of u[n])t.add(e);for(const n of t){if(e&1<<n||!d[n])continue;const t=e|1<<n;E.has(t)||(E.add(t),D.push(t))}}const T=new Map;for(const e of C){let t=0,n=0,a=0;const o=new Set([l]);for(let r=0;r<i.length;r++)if(e&1<<r){t+=i[r].tier,n+=B[r]*i[r].tier+L[r],"spell"===i[r].full.kind&&(a|=1<<m.indexOf(i[r].full.spell));for(const e of u[r])o.add(e)}if(t>v)continue;const r=[...o].filter(t=>!(e&1<<t)&&d[t]).sort((e,t)=>B[t]-B[e]);T.set(e,{cost:t,part:r});let s=0;for(const e of r)s+=i[e].tier-1;const c=Math.min(s,v-t);let f=0,p=0,h=0;for(let o=0;o<=c;o++){if(o>0){for(;p<r.length&&h>=i[r[p]].tier-1;)p++,h=0;f+=B[r[p]],h++}const s=t+o,l=n+f+M[s],d=s*g+a;l>k[d]&&(k[d]=l,w[d]=e)}}return{c:e,cs:i,B:v,F:g,H:k,choice:w,info:T,spellLetters:m}}function S(e,t,n,a,o){const i=[...new Set(e.spellLetters.concat(t.spellLetters))],r=x.spells[n],s=(n,o)=>{let s=0;for(const l of i){const i=(e.spellLetters.includes(l)&&n&1<<e.spellLetters.indexOf(l)?1:0)+(t.spellLetters.includes(l)&&o&1<<t.spellLetters.indexOf(l)?1:0);i>=1&&(s+=b(r[l][0],a)),i>=2&&(s+=b(r[l][1],a))}return s},l=Math.min(o,e.B+t.B),d=new Float64Array(l+1).fill(-1/0),c=new Int32Array(3*(l+1)).fill(-1);for(let n=0;n<e.F;n++)for(let a=0;a<t.F;a++){const o=s(n,a);for(let i=0;i<=e.B;i++){const r=e.H[i*e.F+n];if(r===-1/0)continue;const s=Math.min(t.B,l-i);for(let e=0;e<=s;e++){const s=t.H[e*t.F+a];if(s===-1/0)continue;const l=r+s+o,u=i+e;l>d[u]&&(d[u]=l,c[3*u]=i,c[3*u+1]=n,c[3*u+2]=a)}}}return{V:d,arg:c,P:l,A:e,Bt:t}}function M(e,t,n,a,o){const i=e.choice[t*e.F+n],{cost:r,part:s}=e.info.get(i);for(let t=0;t<e.cs.length;t++)i&1<<t&&(a[e.cs[t].index]=e.cs[t].tier);let l=t-r;for(const t of s){if(l<=0)break;const n=Math.min(l,e.cs[t].tier-1);a[e.cs[t].index]+=n,l-=n}}function E(e,t,n,a,i={}){const r=e.total;let s={points:e.points.slice(),value:w(e.points,n,a)};const l=i.width||40,d=e=>o.filter(t=>e[t.index]>=t.tier).map(e=>e.index),c=e=>{const i=o.map(t=>s.points[t.index]>=t.tier&&!e.includes(t.index)?t.tier:0);if(!v(i,r))return!1;const d=L(t,n,a,{beam:l,start:i,noOrder:!0});return d.value>s.value+1e-9&&(s={points:d.points,value:d.value},!0)};let u=0;for(;u++<(i.rounds||6);){let e=!1;const t=d(s.points);for(const n of t)if(c([n])){e=!0;break}if(!e&&!1!==i.pairs){const t=d(s.points);e:for(let n=0;n<t.length;n++)for(let a=n+1;a<t.length;a++)if(c([t[n],t[a]])){e=!0;break e}}if(!e)break}return{total:r,points:s.points,value:s.value,order:T(s.points,r,null,n,a)}}function D(e,t,n,a={}){const o=C(e,t,n),i=L(e,t,n,{beam:a.beam||(a.heavy?1500:300)});return[o,i,E(o.value>=i.value?o:i,e,t,n,{width:a.width||(a.heavy?80:30),pairs:a.pairs})].sort((e,t)=>t.value-e.value)[0]}function C(e,n,a){const i=Math.max(0,e-50),r=Math.min(i,4e3),s=o.map(()=>0);if(0===r)return{total:i,points:s,order:[],value:0};const l={};for(const e of t)l[e]=A(e,r,n,a);const d=S(l.green,l.purple,n,a,r),c=S(l.red,l.blue,n,a,r);let u=-1/0,f=-1,p=-1;for(let e=0;e<=d.P;e++){if(d.V[e]===-1/0)continue;const t=Math.min(c.P,r-e);for(let n=0;n<=t;n++){if(c.V[n]===-1/0)continue;const t=d.V[e]+c.V[n];t>u+1e-12&&(u=t,f=e,p=n)}}for(const[e,t]of[[d,f],[c,p]]){const n=e.arg[3*t],a=e.arg[3*t+1],o=e.arg[3*t+2];M(e.A,n,a,s),M(e.Bt,t-n,o,s)}return{total:i,points:s,order:T(s,i,null,n,a),value:w(s,n,a)}}function T(e,t,n,a,i){const s=e.slice(),l=o.map(()=>0),d=[],c=o.filter(e=>s[e.index]>=e.tier).map(e=>e.index),u=e=>{if(n&&n.length){const t=n.indexOf(e);return-1===t?1e3+e:t}if(!a)return e;const t=l.slice();return t[e]=o[e].tier,-(w(t,a,i)-w(l,a,i))/o[e].tier},f=new Set(c);for(;f.size;){const e=g(l,t),n=[...f].filter(n=>e[n]&&t>=r[o[n].tier]).sort((e,t)=>u(e)-u(t));if(!n.length)break;const a=n[0];l[a]=o[a].tier,d.push({index:a,points:o[a].tier}),f.delete(a)}for(const e of o){const t=s[e.index];t>0&&t<e.tier&&d.push({index:e.index,points:t})}return d}function P(e,n,a,o,i){const r=n-a;if(r<=0)return 0;const s=k(e,o);let l=0;for(const e of t){const t=s.stages[e];if(t>=3)continue;const n=c[t]-s.colorPoints[e];if(n>r)continue;const a=b(x.flatPerStage[t],i)+b(x.revelation[p[o][e]][t],i)-(t>0?b(x.flatPerStage[t-1],i)+b(x.revelation[p[o][e]][t-1],i):0);l=Math.max(l,a*(1-n/Math.max(r,1))*.8)}return l}const F={COLORS:t,SLICES:o,NEIGHBORS:h,UNLOCK_TOTAL:r,PER_POINT:l,SPELLS:{knight:{A:{name:"Groundshaker",g1:"-2s de cooldown",g2:"+12.5% de dano"},B:{name:"Intense Wound Cleansing",g1:"+125% de cura",g2:"-60s de cooldown"},C:{name:"Front Sweep",g1:"+40% de dano",g2:"área maior"},D:{name:"Chivalrous Challenge",g1:"-20 de mana",g2:"+1 alvo"},E:{name:"Fierce Berserk",g1:"-30 de mana",g2:"+10% de dano"}},paladin:{A:{name:"Strong Ethereal Spear",g1:"-2s de cooldown",g2:"+380% de dano"},B:{name:"Swift Foot",g1:"-8s de cooldown",g2:"-6s de cooldown"},C:{name:"Sharpshooter",g1:"-8s de cooldown",g2:"-6s de cooldown"},D:{name:"Divine Dazzle",g1:"+2 alvos",g2:"+4s de duração, -8s de cooldown"},E:{name:"Divine Caldera",g1:"-20 de mana",g2:"+10% de dano"}},sorcerer:{A:{name:"Magic Shield",g1:"—",g2:"-6s de cooldown"},B:{name:"Energy Wave",g1:"área maior",g2:"+10% de dano"},C:{name:"Focus spells",g1:"+5% de dano",g2:"-4s de cooldown"},D:{name:"Sap Strength",g1:"área maior",g2:"enfraquece mais"},E:{name:"Great Fire Wave",g1:"+15% de dano crítico",g2:"+5% de dano"}},druid:{A:{name:"Mass Healing",g1:"+4% de cura",g2:"área maior"},B:{name:"Terra Wave",g1:"+6.5% de dano",g2:"+10% de life leech"},C:{name:"Strong Ice Wave",g1:"+6% de dano",g2:"área maior"},D:{name:"Nature's Embrace",g1:"+11% de cura",g2:"-10s de cooldown"},E:{name:"Heal Friend",g1:"+4% de cura",g2:"+6% de cura"}}},DEDICATION:f,REVELATION:p,PERK_TEXT:{"Battle Instinct":"Com 5+ monstros colados: +1 de skill de melee e +6 de shielding por monstro além de 4 (até 8).","Battle Healing":"Suas magias de cura curam 10% a mais, 20% com escudo.","Positional Tactics":"Sem monstro colado: +3 distance. Senão +3 de holy e de healing magic level.","Ballistic Mastery":"Bolts: +10% de dano crítico extra. Arrows: +2% de dano.","Runic Mastery":"Uma em cada quatro runas sai com +10% de magic level.","Focus Mastery":"Uma focus spell deixa a próxima magia de ataque 35% mais forte (12s).","Healing Link":"Heal Friend e Nature's Embrace também te curam 1/4 do valor.","Gift of Life":"Golpe mortal pequeno é absorvido com cura; cooldowns −60s. Uma vez a cada 30/20/10h.","Executioner's Throw":"Arremesso que ricocheteia em 2/3/4 corpos, bem mais forte em alvo abaixo de 30%.","Combat Mastery":"Bate mais conforme o alvo perde vida e recebe menos conforme você perde.","Avatar of Steel":"Avatar: 15s de golpes sempre críticos e 5/10/15% menos dano recebido.","Avatar of Light":"Avatar: 15s de golpes sempre críticos e 5/10/15% menos dano recebido.","Avatar of Storm":"Avatar: 15s de golpes sempre críticos e 5/10/15% menos dano recebido.","Avatar of Nature":"Avatar: 15s de golpes sempre críticos e 5/10/15% menos dano recebido.","Divine Grenade":"Golpe sagrado que explode ao redor do alvo, +30/60/100% por estágio.","Divine Empowerment":"Campo sagrado por 5s; em cima dele você bate 8/10/12% mais forte.","Beam Mastery":"Beams +10/12/14% de dano e reduzem cooldowns. Libera Great Death Beam.","Drain Body":"+3/4/5% de life leech e +2/3/4% de mana leech em alvos enfraquecidos.","Blessing of the Grove":"+5/7.5/10% de cura em alvo abaixo de 60% de vida (dobra abaixo de 30%).","Twin Burst":"Libera Terra Burst e Ice Burst: anel ao redor, +20/40/60% em alvos acima de 60%."},SKILL_NAME:{knight:"sword, axe e club",paladin:"distance",sorcerer:"magic level",druid:"magic level"},STAGE_AT:c,STAGE_FLAT:u,VALUES:x,PROFILES:{dano:{label:"Dano (hunt em party)",w:{dano:1,defesa:.4,cura:.3,sustento:.6,utilidade:.1}},tank:{label:"Tank / sobrevivência",w:{dano:.5,defesa:1,cura:.6,sustento:.8,utilidade:.2}},cura:{label:"Cura / suporte",w:{dano:.4,defesa:.6,cura:1,sustento:.8,utilidade:.2}},equilibrado:{label:"Equilibrado",w:{dano:.8,defesa:.8,cura:.7,sustento:.7,utilidade:.2}}},DEFAULT_PROFILE:{knight:"tank",paladin:"dano",sorcerer:"dano",druid:"cura"},openSlices:g,isLegal:v,summarize:k,score:w,optimize:(e,t,n,a)=>D(e,t,n,a),optimizeBest:D,optimizeExact:C,optimizeBeam:L,improve:E,exactSearch:function(e,t,n,a={}){const i=Math.max(0,e-50),s=a.maxSets||2e5,l=new Set(["0"]),d=[[0n,0]];let c=null,u=0;for(;d.length;){const[e,a]=d.pop();if(++u>s)return null;const f=o.map((t,n)=>e>>BigInt(n)&1n?t.tier:0),p=B(f,i,t,n);(!c||p.value>c.value)&&(c=p);const m=g(f,i);for(let t=0;t<36;t++){if(e>>BigInt(t)&1n)continue;const n=o[t].tier;if(!m[t]||i<r[n]||a+n>i)continue;const s=e|1n<<BigInt(t),c=s.toString(36);l.has(c)||(l.add(c),d.push([s,a+n]))}}return{total:i,points:c.points,value:c.value,order:T(c.points,i,null,t,n),sets:u,exact:!0}},prefixAt:function(e,t,n){const a=Math.max(0,t-50),i=o.map(()=>0);let s=a;for(const t of e){const e=o[t];if(!g(i,a)[t]||a<r[e.tier])break;const n=Math.min(s,e.tier);if(i[t]=n,s-=n,n<e.tier||s<=0)break}if(s>0&&n)for(const e of o){if(s<=0)break;const t=n[e.index]-i[e.index];if(t<=0)continue;if(!g(i,a)[e.index]||a<r[e.tier])continue;const o=Math.min(s,t);i[e.index]+=o,s-=o}return i},completeLeftover:B,buildOrder:T,pointsAtLevel:function(e,t){const n=Math.max(0,t-50),a=o.map(()=>0);let i=n;for(const t of e){if(i<=0)break;const e=o[t.index];if(!g(a,n)[e.index]||n<r[e.tier])continue;const s=Math.min(i,t.points-a[e.index]);s<=0||(a[e.index]+=s,i-=s)}return a}};"undefined"!=typeof module&&module.exports?module.exports=F:e.WheelEngine=F}("undefined"!=typeof window?window:globalThis)</script><script>(()=>{const t=window.WheelEngine,e=[{id:"knight",label:"Elite Knight",short:"EK"},{id:"paladin",label:"Royal Paladin",short:"RP"},{id:"sorcerer",label:"Master Sorcerer",short:"MS"},{id:"druid",label:"Elder Druid",short:"ED"}],n={green:"Verde",red:"Vermelho",purple:"Roxo",blue:"Azul"},a={health:"Pontos de vida",mana:"Mana",capacity:"Capacidade",mitigation:"Mitigation Multiplier",vitals:"Hit Points & Mana"},i=[["dano","Dano"],["defesa","Defesa"],["cura","Cura"],["sustento","Mana e leech"],["utilidade","Utilidade"]],s={get(t,e){try{const n=localStorage.getItem("roda:"+t);return null===n?e:JSON.parse(n)}catch{return e}},set(t,e){try{localStorage.setItem("roda:"+t,JSON.stringify(e))}catch{}}},o={voc:s.get("voc","knight"),level:s.get("level",216),target:s.get("target",216),profile:null,weights:null};o.profile=s.get("profile:"+o.voc,t.DEFAULT_PROFILE[o.voc]),o.weights=s.get("weights:"+o.voc,null)||{...t.PROFILES[o.profile].w};const l=t=>document.getElementById(t),r=(t,e=0)=>Number(t).toLocaleString("pt-BR",{minimumFractionDigits:e,maximumFractionDigits:e}),c=t=>getComputedStyle(document.documentElement).getPropertyValue(t).trim(),d=l("voc");for(const n of e){const e=document.createElement("button");e.type="button",e.textContent=n.label,e.dataset.voc=n.id,e.addEventListener("click",()=>{o.voc=n.id,o.profile=s.get("profile:"+n.id,t.DEFAULT_PROFILE[n.id]),o.weights=s.get("weights:"+n.id,null)||{...t.PROFILES[o.profile].w},s.set("voc",n.id),v(),E()}),d.appendChild(e)}const p=l("profile");for(const[e,n]of Object.entries(t.PROFILES)){const t=document.createElement("option");t.value=e,t.textContent=n.label,p.appendChild(t)}p.addEventListener("change",()=>{o.profile=p.value,o.weights={...t.PROFILES[o.profile].w},s.set("profile:"+o.voc,o.profile),s.set("weights:"+o.voc,null),v(),E()});const u=t=>Math.max(51,Math.min(4050,Math.round(Number(t)||51)));l("level").addEventListener("input",()=>{const t=u(l("level").value),e=o.target===o.level;o.level=t,(e||o.target<t)&&(o.target=t,l("target").value=t),s.set("level",o.level),s.set("target",o.target),E()}),l("target").addEventListener("input",()=>{o.target=Math.max(o.level,u(l("target").value)),s.set("target",o.target),E()}),l("target").addEventListener("change",()=>{l("target").value=o.target}),l("level").addEventListener("change",()=>{l("level").value=o.level});const m=l("weights"),g={};for(const[t,e]of i){const n=document.createElement("label");n.innerHTML=`<span>${e}</span><input type="range" min="0" max="1" step="0.05" id="w-${t}"><span class="num small muted" id="wv-${t}"></span>`,m.appendChild(n);const a=n.querySelector("input");g[t]=a,a.addEventListener("input",()=>{o.weights[t]=Number(a.value),l("wv-"+t).textContent=Number(a.value).toFixed(2),s.set("weights:"+o.voc,o.weights),E()})}function v(){for(const t of d.children)t.setAttribute("aria-pressed",String(t.dataset.voc===o.voc));p.value=o.profile,l("level").value=o.level,l("target").value=o.target;for(const[t]of i)g[t].value=o.weights[t],l("wv-"+t).textContent=Number(o.weights[t]).toFixed(2)}l("reset-w").addEventListener("click",()=>{o.weights={...t.PROFILES[o.profile].w},s.set("weights:"+o.voc,null),v(),E()});let h=null,b=0,f=null;try{const t=document.getElementById("engine").textContent+"\n      self.onmessage = (ev) => {\n        const { id, voc, target, level, weights } = ev.data;\n        const E = self.WheelEngine;\n        let plan = target <= 700 ? E.exactSearch(target, voc, weights) : null;\n        if (!plan) plan = Object.assign(E.optimize(target, voc, weights, { heavy: true }), { exact: false });\n        const compare = Object.entries(E.PROFILES).map(([k, p]) => ({ k, points: E.optimize(level, voc, p.w).points }));\n        self.postMessage({ id, plan, compare });\n      };";h=new Worker(URL.createObjectURL(new Blob([t],{type:"text/javascript"}))),h.onmessage=t=>{t.data.id===b&&$(t.data.plan,t.data.compare)},h.onerror=()=>{h=null,E()}}catch{h=null}function E(){l("result").classList.add("busy"),l("quality").textContent="Calculando…",clearTimeout(f),f=setTimeout(()=>{const e={id:++b,voc:o.voc,target:o.target,level:o.level,weights:{...o.weights}};if(h)return void h.postMessage(e);const n=t;let a=e.target<=700?n.exactSearch(e.target,e.voc,e.weights):null;a||(a=Object.assign(n.optimize(e.target,e.voc,e.weights,{heavy:!0}),{exact:!1}));$(a,Object.entries(n.PROFILES).map(([t,a])=>({k:t,points:n.optimize(e.level,e.voc,a.w).points})))},120)}function $(e,i){const s=o.voc,d=t.pointsAtLevel(e.order,o.level);!function(e,i){const s=l("wheel"),r="http://www.w3.org/2000/svg";s.replaceChildren();const d=t=>c("--"+t),p=c("--line"),u=c("--fg"),m=c("--muted"),g=c("--surface-2");for(const l of t.SLICES){const t=A(l),v=e[l.index],h=i[l.index],b=document.createElementNS(r,"path");if(b.setAttribute("d",w(t.r0,t.r1,t.a0,t.a1)),b.setAttribute("fill",g),b.setAttribute("stroke",p),s.appendChild(b),h>v){const e=document.createElementNS(r,"path");e.setAttribute("d",w(t.r0,t.r1,t.a0,t.a1)),e.setAttribute("fill",d(l.color)),e.setAttribute("fill-opacity","0.18"),e.setAttribute("stroke",d(l.color)),e.setAttribute("stroke-dasharray","3 3"),s.appendChild(e)}if(v>0){const e=v/l.tier,n=t.r0+(t.r1-t.r0)*e,a=document.createElementNS(r,"path");a.setAttribute("d",w(t.r0,n,t.a0,t.a1)),a.setAttribute("fill",d(l.color)),a.setAttribute("fill-opacity",e>=1?"0.9":"0.55"),s.appendChild(a)}const[f,E]=S(t.rm,t.mid),$=document.createElementNS(r,"text");$.setAttribute("x",f.toFixed(1)),$.setAttribute("y",(E+4).toFixed(1)),$.setAttribute("text-anchor","middle"),$.setAttribute("font-size","11"),$.setAttribute("font-family","IBM Plex Sans, system-ui, sans-serif"),$.setAttribute("fill",v>=l.tier?c("--on-slice"):v>0?u:m),$.textContent=v>0?v>=l.tier?String(l.tier):`${v}/${l.tier}`:String(l.tier);const L=document.createElementNS(r,"title");L.textContent=`${n[l.color]} ${l.tier}: ${a[l.stat]} (${v}/${l.tier}) — cheia: ${y(l,o.voc)}`,$.appendChild(L),s.appendChild($)}const v=t.summarize(e,o.voc);for(const e of t.COLORS){const t={green:225,red:315,purple:45,blue:135}[e],[n,a]=S(18,t),i=document.createElementNS(r,"circle");i.setAttribute("cx",n.toFixed(1)),i.setAttribute("cy",a.toFixed(1)),i.setAttribute("r","11"),i.setAttribute("fill",v.stages[e]>0?d(e):g),i.setAttribute("stroke",d(e)),s.appendChild(i);const o=document.createElementNS(r,"text");o.setAttribute("x",n.toFixed(1)),o.setAttribute("y",(a+4).toFixed(1)),o.setAttribute("text-anchor","middle"),o.setAttribute("font-size","11"),o.setAttribute("font-weight","600"),o.setAttribute("font-family","IBM Plex Sans, system-ui, sans-serif"),o.setAttribute("fill",v.stages[e]>0?c("--on-slice"):m),o.textContent=String(v.stages[e]),s.appendChild(o)}l("legend").innerHTML=t.COLORS.map(t=>`<span><i class="sw" style="background:var(--${t})"></i>${n[t]}</span>`).join("")+"<span>Tracejado: planejado para depois</span><span>Centro: estágio de revelação</span>"}(d,e.points),function(e,a){const i=t.summarize(e,a),s=[["Pontos de vida","+"+r(i.health)],["Mana","+"+r(i.mana)],["Capacidade","+"+r(i.capacity)],["Mitigation","+"+r(i.mitigation,2)+"%"],["Life leech","+"+r(i.lifeLeech,2)+"%"],["Mana leech","+"+r(i.manaLeech,2)+"%"],["Skill ("+t.SKILL_NAME[a]+")","+"+i.skill],["Dano e cura","+"+i.flat]];l("stats").innerHTML=s.map(([t,e])=>`<div class="stat"><span class="label">${t}</span><b>${e}</b></div>`).join(""),l("spells").innerHTML=["A","B","C","D","E"].map(e=>{const n=t.SPELLS[a][e],s=Math.min(2,i.spells[e]),o=0===s?"não aumentada":1===s?n.g1:n.g1+" · "+n.g2;return`<span class="chip ${s?"on":""}"><b>${n.name}</b><i>${s?"grau "+s+": ":""}${o}</i></span>`}).join("");const o=["green","purple"].map(e=>{const n=t.DEDICATION[a][e];return`<span class="chip ${i.dedication[e]?"on":""}" title="${t.PERK_TEXT[n]||""}"><b>${n}</b><i>${i.dedication[e]?"ativo":"inativo"}</i></span>`});l("perks").innerHTML=o.join(""),l("rev").innerHTML=t.COLORS.map(e=>{const s=t.REVELATION[a][e],o=i.stages[e],l=t.STAGE_AT[o],c=[0,1,2].map(t=>`<i class="pip ${t<o?"on":""}"></i>`).join("");return`<div style="border-left-color:var(--${e}); color:var(--fg)">\n        <span class="label" style="color:var(--${e})">${n[e]} · ${r(i.colorPoints[e])} pts</span>\n        <b>${s}</b>\n        <span class="pips" style="color:var(--${e})">${c}</span>\n        <span class="small muted">${o?"Estágio "+o+" · +"+t.STAGE_FLAT[o-1]+" dano e cura":"Bloqueado"}${l?" · próximo em "+r(l):""}</span>\n        <span class="small muted">${t.PERK_TEXT[s]||""}</span>\n      </div>`}).join("")}(d,s),function(e,i){const s=o.level-50;let c=0;const d=[];e.order.forEach((o,l)=>{const p=t.SLICES[o.index],u=c;c+=o.points;const m=c>s,g=o.points<p.tier,v=g?"Só o bônus por ponto ("+a[p.stat]+")":y(p,i)+" + "+a[p.stat],h=m&&u<s?`${s-u} agora, ${o.points} no total`:`${o.points}${g?"":" (cheia)"}`;d.push(`<tr class="${m&&u>=s?"later":""}">\n        <td class="num">${l+1}</td>\n        <td><span class="dot" style="background:var(--${p.color})"></span>${n[p.color]} ${p.tier}</td>\n        <td class="num">${h}</td>\n        <td>${v}</td>\n        <td class="num">${r(Math.min(c,e.total))} / ${r(e.total)}</td>\n      </tr>`)}),l("steps").innerHTML=d.join("")||'<tr><td colspan="5" class="muted">A roda abre no nível 51.</td></tr>'}(e,s),function(e,n,a){const i=o.weights,s=n.map(e=>({label:t.PROFILES[e.k].label,points:e.points}));s.push({label:"Sua configuração",points:t.pointsAtLevel(a.order,o.level),mine:!0});for(const n of s)n.value=t.score(n.points,e,i);const c=Math.max(...s.map(t=>t.value),1e-9);l("compare").innerHTML=s.map(n=>{const a=t.summarize(n.points,e),i=["A","B","C","D","E"].filter(t=>a.spells[t]>0).map(n=>t.SPELLS[e][n].name+" "+Math.min(2,a.spells[n])).join(", ")||"nenhuma magia";return`<div class="block">\n        <div style="display:flex;justify-content:space-between;gap:8px"><b>${n.label}</b><span class="num muted">${r(100*n.value/c)}%</span></div>\n        <div class="bar"><i style="width:${(100*n.value/c).toFixed(1)}%"></i></div>\n        <span class="small muted">${i} · +${r(a.health)} HP · +${r(a.mana)} mana</span>\n      </div>`}).join("")}(s,i,e),l("pts-now").textContent=r(o.level-50),l("quality").textContent=e.exact?`Ótimo exato · ${r(e.sets)} combinações testadas`:"Melhor build encontrada (busca completa)",l("result").classList.remove("busy")}const L=[[38,78],[80,122],[124,166],[168,206],[208,246]],x={green:[270,180],red:[270,360],purple:[360,450],blue:[180,90]},S=(t,e)=>{const n=e*Math.PI/180;return[260+t*Math.cos(n),260+t*Math.sin(n)]};function w(t,e,n,a){const[i,s]=n<a?[n,a]:[a,n],o=S(e,i),l=S(e,s),r=S(t,s),c=S(t,i),d=s-i>180?1:0;return`M${o[0].toFixed(2)} ${o[1].toFixed(2)} A${e} ${e} 0 ${d} 1 ${l[0].toFixed(2)} ${l[1].toFixed(2)} L${r[0].toFixed(2)} ${r[1].toFixed(2)} A${t} ${t} 0 ${d} 0 ${c[0].toFixed(2)} ${c[1].toFixed(2)} Z`}function A(t){const[e,n]=x[t.color],a=(n-e)/[1,2,3,2,1][t.ring-1],i=e+a*t.pos+(a>0?.8:-.8),s=e+a*(t.pos+1)-(a>0?.8:-.8),[o,l]=L[t.ring-1];return{a0:i,a1:s,r0:o,r1:l,mid:(i+s)/2,rm:(o+l)/2}}function y(e,n){const a=e.full.kind;return"spell"===a?"Augmented "+t.SPELLS[n][e.full.spell].name:"mana-leech"===a?"+0,25% Mana Leech":"life-leech"===a?"+0,75% Life Leech":"skill"===a||"vessel"===a?"+1 "+t.SKILL_NAME[n]:"dedication"===a?t.DEDICATION[n][e.color]:""}v();{const e=t.optimize(o.target,o.voc,o.weights),n=Object.entries(t.PROFILES).map(([t])=>({k:t,points:e.points}));$(Object.assign(e,{exact:!1}),n)}E();const M=()=>E();try{matchMedia("(prefers-color-scheme: dark)").addEventListener("change",M)}catch{}new MutationObserver(M).observe(document.documentElement,{attributes:!0,attributeFilter:["data-theme"]})})()</script></body></html>
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Huntera Track · Roda do Destino</title><meta name="description" content="Calculadora da Roda do Destino (Wheel of Destiny) do Huntera: escolha vocação e nível e veja a melhor build, os perks e a ordem para colocar no jogo."><meta property="og:title" content="Huntera Track · Roda do Destino"><meta property="og:description" content="Melhor build da Roda do Destino para EK, RP, MS e ED, pelo seu nível."><meta property="og:type" content="website"><meta name="theme-color" content="#0F0F0F"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 16L16 2A14 14 0 0 0 2 16Z' fill='%234E8B12'/%3E%3Cpath d='M16 16L30 16A14 14 0 0 0 16 2Z' fill='%23B23A2E'/%3E%3Cpath d='M16 16L16 30A14 14 0 0 0 30 16Z' fill='%237A3FA8'/%3E%3Cpath d='M16 16L2 16A14 14 0 0 0 16 30Z' fill='%232B66B8'/%3E%3C/svg%3E"><style>:root{padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0)}img{max-width:100%}[hidden]{display:none!important}</style></head><body><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: barra de controles no topo; roda à esquerda, resultado à direita; passo a passo e comparação embaixo. */
+:root {
+  --bg: #F5F3EE;
+  --surface: #FAFAF7;
+  --surface-2: #ECE8DF;
+  --line: #D9D3C6;
+  --fg: #1A1A1A;
+  --muted: #5E5A52;
+  --accent: #8A6417;
+  --accent-soft: #F1E4C6;
+  --on-accent: #FAFAFA;
+  --on-slice: #FAFAFA;
+  --green: #4E8B12;
+  --red: #B23A2E;
+  --purple: #7A3FA8;
+  --blue: #2B66B8;
+  --warn: #9A5B00;
+  --font-display: "Marcellus", "Palatino Linotype", Georgia, serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F0F0F; --surface: #1A1A1A; --surface-2: #24221E; --line: #34312B;
+    --fg: #F5F5F5; --muted: #B3AC9F; --accent: #D9AE55; --accent-soft: #3A2F18; --on-accent: #1A1A1A; --on-slice: #0F0F0F;
+    --green: #8BC34A; --red: #E57361; --purple: #B58BDB; --blue: #6FA3E8; --warn: #E8B04A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F0F0F; --surface: #1A1A1A; --surface-2: #24221E; --line: #34312B;
+  --fg: #F5F5F5; --muted: #B3AC9F; --accent: #D9AE55; --accent-soft: #3A2F18; --on-accent: #1A1A1A; --on-slice: #0F0F0F;
+  --green: #8BC34A; --red: #E57361; --purple: #B58BDB; --blue: #6FA3E8; --warn: #E8B04A;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 14px/1.5 var(--font-body);
+}
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-block: 24px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid;
+  gap: 24px;
+}
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.2; margin: 0; text-wrap: balance; }
+h1 { font-size: 32px; }
+h2 { font-size: 24px; }
+h3 { font-size: 16px; font-family: var(--font-body); font-weight: 600; }
+p { margin: 0; }
+.muted { color: var(--muted); }
+.small { font-size: 12px; }
+.num { font-variant-numeric: tabular-nums; }
+.label { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+
+header.top { display: grid; gap: 8px; }
+header.top p { max-width: 68ch; }
+
+/* Controles */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.field { display: grid; gap: 4px; min-width: 0; }
+.seg { display: flex; flex-wrap: wrap; gap: 4px; }
+.seg button {
+  height: 40px; padding: 0 12px; border-radius: 8px; border: 1px solid var(--line);
+  background: transparent; color: var(--fg); font: inherit; cursor: pointer;
+}
+.seg button:hover { background: var(--surface-2); }
+.seg button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-weight: 600; }
+input[type="number"], select {
+  height: 40px; padding: 0 12px; border-radius: 8px; border: 1px solid var(--line);
+  background: var(--bg); color: var(--fg); font: inherit; min-width: 0;
+}
+input[type="number"] { width: 112px; }
+button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.pts { display: grid; gap: 4px; margin-left: auto; text-align: right; }
+.pts strong { font-size: 24px; font-variant-numeric: tabular-nums; font-weight: 600; }
+
+/* Resultado */
+.result { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+@media (max-width: 860px) { .result { grid-template-columns: 1fr; } }
+.wheel-box { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; gap: 12px; }
+.wheel-box svg { width: 100%; max-width: 560px; height: auto; margin: 0 auto; display: block; }
+.legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 4px; }
+.sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+.panel { display: grid; gap: 16px; min-width: 0; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); gap: 8px; }
+.stat { padding: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; display: grid; gap: 4px; }
+.stat b { font-size: 20px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.block { display: grid; gap: 8px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; border-radius: 999px; background: var(--surface-2); font-size: 12px; }
+.chip.on { background: var(--accent-soft); }
+.chip i { font-style: normal; color: var(--muted); }
+.rev { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; }
+.rev div { padding: 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); display: grid; gap: 4px; border-left-width: 4px; }
+.rev .pips { display: flex; gap: 4px; }
+.rev .pip { width: 16px; height: 4px; border-radius: 2px; background: var(--line); }
+.rev .pip.on { background: currentColor; }
+
+/* Passo a passo */
+.steps-box { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; gap: 12px; }
+.steps-head { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between; }
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 500; }
+tr.later td { color: var(--muted); }
+tr.later td:first-child::after { content: " · depois"; font-size: 12px; }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+
+/* Comparação e pesos */
+.grid2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
+@media (max-width: 860px) { .grid2 { grid-template-columns: 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; gap: 12px; min-width: 0; }
+.bar { height: 8px; border-radius: 4px; background: var(--surface-2); overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--accent); }
+.weights { display: grid; gap: 12px; }
+.weights label { display: grid; grid-template-columns: 96px 1fr 40px; gap: 12px; align-items: center; }
+input[type="range"] { width: 100%; accent-color: var(--accent); }
+.btn { height: 40px; padding: 0 16px; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--fg); font: inherit; cursor: pointer; justify-self: start; }
+.btn:hover { background: var(--surface-2); }
+.note { padding: 12px 16px; border-radius: 8px; background: var(--accent-soft); font-size: 14px; }
+.busy { opacity: .55; transition: opacity .15s; }
+@media (prefers-reduced-motion: reduce) { .busy { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <span class="label">Huntera · Wheel of Destiny</span>
+    <h1>Roda do Destino</h1>
+    <p class="muted">Escolha a vocação e o nível: o painel calcula a melhor distribuição dos pontos usando as regras reais da roda do Huntera (fatias, desbloqueios, magias aumentadas e perks de revelação) e mostra a ordem para colocar no jogo.</p>
+  </header>
+
+  <section class="controls" aria-label="Escolhas">
+    <div class="field">
+      <span class="label" id="lbl-voc">Vocação</span>
+      <div class="seg" role="group" aria-labelledby="lbl-voc" id="voc"></div>
+    </div>
+    <div class="field">
+      <label class="label" for="level">Nível</label>
+      <input id="level" type="number" min="51" max="4050" step="1" value="216" inputmode="numeric">
+    </div>
+    <div class="field">
+      <label class="label" for="target">Planejar até o nível</label>
+      <input id="target" type="number" min="51" max="4050" step="1" value="216" inputmode="numeric">
+    </div>
+    <div class="field">
+      <label class="label" for="profile">Objetivo da build</label>
+      <select id="profile"></select>
+    </div>
+    <div class="pts">
+      <span class="label">Pontos agora</span>
+      <strong id="pts-now">166</strong>
+      <span class="small muted" id="quality" aria-live="polite">Calculando…</span>
+    </div>
+  </section>
+
+  <section class="result" id="result">
+    <div class="wheel-box">
+      <svg id="wheel" viewBox="0 0 520 520" role="img" aria-label="Roda do Destino com os pontos da build"></svg>
+      <div class="legend" id="legend"></div>
+    </div>
+    <div class="panel">
+      <div class="stats" id="stats"></div>
+      <div class="block">
+        <h3>Magias aumentadas</h3>
+        <div class="chips" id="spells"></div>
+      </div>
+      <div class="block">
+        <h3>Perks de dedicação e convicção</h3>
+        <div class="chips" id="perks"></div>
+      </div>
+      <div class="block">
+        <h3>Revelação (por cor)</h3>
+        <div class="rev" id="rev"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps-box">
+    <div class="steps-head">
+      <div class="block">
+        <h2>Passo a passo no jogo</h2>
+        <p class="muted small">Encha as fatias nesta ordem (botão direito enche a fatia). Cada linha já está liberada quando chega a vez dela. As linhas marcadas "depois" são do nível planejado.</p>
+      </div>
+      <p class="small muted" id="reset-note">Resetar a roda custa 949.000 de gold. Planeje antes de salvar.</p>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>#</th><th>Fatia</th><th>Pontos</th><th>O que libera</th><th>Total usado</th></tr></thead>
+        <tbody id="steps"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="grid2">
+    <div class="card">
+      <h2>Comparar objetivos</h2>
+      <p class="muted small">A mesma vocação e nível otimizados para cada objetivo. O valor é relativo ao objetivo escolhido acima.</p>
+      <div id="compare" class="block"></div>
+    </div>
+    <div class="card">
+      <h2>Ajustar pesos</h2>
+      <p class="muted small">Quanto cada tipo de bônus vale para você. Os perfis já vêm calibrados; mexa se quiser outra prioridade.</p>
+      <div class="weights" id="weights"></div>
+      <button class="btn" id="reset-w" type="button">Voltar ao perfil</button>
+    </div>
+  </section>
+
+  <p class="note small">Regras e números da roda vêm do cliente oficial do Huntera e foram conferidos contra as próprias funções do jogo. O que é estimativa é o peso de cada bônus (por exemplo, quanto vale +10% numa magia versus um perk de revelação), porque o jogo não publica o dano de cada magia. Por isso dá para ajustar os pesos. O perfil <b>Dano máximo</b> conta só o dano a mais de cada bônus; os Avatares valem pouco nele porque, no jogo, recarregam a cada 2 horas.</p>
+</div>
+
+<script id="engine">
+// Motor da Roda do Destino do Huntera.
+// Dados e regras copiados do cliente oficial (huntera.com.br, chunk da roda):
+// fatias, anéis, adjacência, desbloqueio por pontos totais, bônus por ponto e perks.
+(function (root) {
+  'use strict';
+
+  // ---------- Dados do jogo (literais do cliente) ----------
+  const COLORS = ['green', 'red', 'purple', 'blue'];
+  const RING = { 50: 1, 75: 2, 100: 3, 150: 4, 200: 5 };
+  const h = (index, color, tier, pos, stat, full) => ({ index, color, tier, ring: RING[tier], pos, stat, full });
+  const SLICES = [
+    h(0, 'green', 200, 0, 'vitals', { kind: 'dedication' }),
+    h(1, 'green', 150, 0, 'mitigation', { kind: 'mana-leech' }),
+    h(2, 'green', 100, 0, 'health', { kind: 'vessel' }),
+    h(3, 'red', 100, 0, 'mana', { kind: 'skill' }),
+    h(4, 'red', 150, 0, 'health', { kind: 'vessel' }),
+    h(5, 'red', 200, 0, 'vitals', { kind: 'spell', spell: 'C' }),
+    h(6, 'green', 150, 1, 'mitigation', { kind: 'vessel' }),
+    h(7, 'green', 100, 1, 'health', { kind: 'spell', spell: 'A' }),
+    h(8, 'green', 75, 0, 'mana', { kind: 'life-leech' }),
+    h(9, 'red', 75, 0, 'capacity', { kind: 'vessel' }),
+    h(10, 'red', 100, 1, 'mana', { kind: 'spell', spell: 'D' }),
+    h(11, 'red', 150, 1, 'health', { kind: 'mana-leech' }),
+    h(12, 'green', 100, 2, 'health', { kind: 'spell', spell: 'B' }),
+    h(13, 'green', 75, 1, 'mana', { kind: 'skill' }),
+    h(14, 'green', 50, 0, 'capacity', { kind: 'vessel' }),
+    h(15, 'red', 50, 0, 'mitigation', { kind: 'spell', spell: 'E' }),
+    h(16, 'red', 75, 1, 'capacity', { kind: 'life-leech' }),
+    h(17, 'red', 100, 2, 'mana', { kind: 'vessel' }),
+    h(18, 'blue', 100, 0, 'mitigation', { kind: 'vessel' }),
+    h(19, 'blue', 75, 0, 'health', { kind: 'mana-leech' }),
+    h(20, 'blue', 50, 0, 'mana', { kind: 'spell', spell: 'C' }),
+    h(21, 'purple', 50, 0, 'health', { kind: 'vessel' }),
+    h(22, 'purple', 75, 0, 'mitigation', { kind: 'skill' }),
+    h(23, 'purple', 100, 0, 'capacity', { kind: 'spell', spell: 'A' }),
+    h(24, 'blue', 150, 0, 'capacity', { kind: 'life-leech' }),
+    h(25, 'blue', 100, 1, 'mitigation', { kind: 'spell', spell: 'D' }),
+    h(26, 'blue', 75, 1, 'health', { kind: 'vessel' }),
+    h(27, 'purple', 75, 1, 'mitigation', { kind: 'mana-leech' }),
+    h(28, 'purple', 100, 1, 'capacity', { kind: 'spell', spell: 'B' }),
+    h(29, 'purple', 150, 0, 'mana', { kind: 'vessel' }),
+    h(30, 'blue', 200, 0, 'vitals', { kind: 'spell', spell: 'E' }),
+    h(31, 'blue', 150, 1, 'capacity', { kind: 'vessel' }),
+    h(32, 'blue', 100, 2, 'mitigation', { kind: 'skill' }),
+    h(33, 'purple', 100, 2, 'capacity', { kind: 'vessel' }),
+    h(34, 'purple', 150, 1, 'mana', { kind: 'life-leech' }),
+    h(35, 'purple', 200, 0, 'vitals', { kind: 'dedication' }),
+  ];
+  const SLOTS_PER_RING = [1, 2, 3, 2, 1];
+  const UNLOCK_TOTAL = { 50: 0, 75: 50, 100: 125, 150: 225, 200: 375 }; // pontos totais da roda exigidos por tamanho
+  const BRIDGES = [['green', 'top', 'red', 'top'], ['green', 'bottom', 'blue', 'top'], ['red', 'bottom', 'purple', 'top'], ['purple', 'bottom', 'blue', 'bottom']];
+  const PER_POINT = {
+    knight: { health: 3, mana: 1, capacity: 5 },
+    paladin: { health: 2, mana: 3, capacity: 4 },
+    sorcerer: { health: 1, mana: 6, capacity: 2 },
+    druid: { health: 1, mana: 6, capacity: 2 },
+  };
+  const MITIGATION_PER_POINT = 0.08, MANA_LEECH_FULL = 0.25, LIFE_LEECH_FULL = 0.75;
+  const STAGE_AT = [250, 500, 1000], STAGE_FLAT = [4, 9, 20];
+  const SKILL_NAME = { knight: 'sword, axe e club', paladin: 'distance', sorcerer: 'magic level', druid: 'magic level' };
+  const SPELLS = {
+    knight: {
+      A: { name: 'Groundshaker', g1: '-2s de cooldown', g2: '+12.5% de dano' },
+      B: { name: 'Intense Wound Cleansing', g1: '+125% de cura', g2: '-60s de cooldown' },
+      C: { name: 'Front Sweep', g1: '+40% de dano', g2: 'área maior' },
+      D: { name: 'Chivalrous Challenge', g1: '-20 de mana', g2: '+1 alvo' },
+      E: { name: 'Fierce Berserk', g1: '-30 de mana', g2: '+10% de dano' },
+    },
+    paladin: {
+      A: { name: 'Strong Ethereal Spear', g1: '-2s de cooldown', g2: '+380% de dano' },
+      B: { name: 'Swift Foot', g1: '-8s de cooldown', g2: '-6s de cooldown' },
+      C: { name: 'Sharpshooter', g1: '-8s de cooldown', g2: '-6s de cooldown' },
+      D: { name: 'Divine Dazzle', g1: '+2 alvos', g2: '+4s de duração, -8s de cooldown' },
+      E: { name: 'Divine Caldera', g1: '-20 de mana', g2: '+10% de dano' },
+    },
+    sorcerer: {
+      A: { name: 'Magic Shield', g1: '—', g2: '-6s de cooldown' },
+      B: { name: 'Energy Wave', g1: 'área maior', g2: '+10% de dano' },
+      C: { name: 'Focus spells', g1: '+5% de dano', g2: '-4s de cooldown' },
+      D: { name: 'Sap Strength', g1: 'área maior', g2: 'enfraquece mais' },
+      E: { name: 'Great Fire Wave', g1: '+15% de dano crítico', g2: '+5% de dano' },
+    },
+    druid: {
+      A: { name: 'Mass Healing', g1: '+4% de cura', g2: 'área maior' },
+      B: { name: 'Terra Wave', g1: '+6.5% de dano', g2: '+10% de life leech' },
+      C: { name: 'Strong Ice Wave', g1: '+6% de dano', g2: 'área maior' },
+      D: { name: "Nature's Embrace", g1: '+11% de cura', g2: '-10s de cooldown' },
+      E: { name: 'Heal Friend', g1: '+4% de cura', g2: '+6% de cura' },
+    },
+  };
+  const DEDICATION = {
+    knight: { green: 'Battle Instinct', purple: 'Battle Healing' },
+    paladin: { green: 'Positional Tactics', purple: 'Ballistic Mastery' },
+    sorcerer: { green: 'Runic Mastery', purple: 'Focus Mastery' },
+    druid: { green: 'Healing Link', purple: 'Runic Mastery' },
+  };
+  const REVELATION = {
+    knight: { green: 'Gift of Life', red: "Executioner's Throw", purple: 'Avatar of Steel', blue: 'Combat Mastery' },
+    paladin: { green: 'Gift of Life', red: 'Divine Grenade', purple: 'Avatar of Light', blue: 'Divine Empowerment' },
+    sorcerer: { green: 'Gift of Life', red: 'Beam Mastery', purple: 'Avatar of Storm', blue: 'Drain Body' },
+    druid: { green: 'Gift of Life', red: 'Blessing of the Grove', purple: 'Avatar of Nature', blue: 'Twin Burst' },
+  };
+  const PERK_TEXT = {
+    'Battle Instinct': 'Com 5+ monstros colados: +1 de skill de melee e +6 de shielding por monstro além de 4 (até 8).',
+    'Battle Healing': 'Suas magias de cura curam 10% a mais, 20% com escudo.',
+    'Positional Tactics': 'Sem monstro colado: +3 distance. Senão +3 de holy e de healing magic level.',
+    'Ballistic Mastery': 'Bolts: +10% de dano crítico extra. Arrows: +2% de dano.',
+    'Runic Mastery': 'Uma em cada quatro runas sai com +10% de magic level.',
+    'Focus Mastery': 'Uma focus spell deixa a próxima magia de ataque 35% mais forte (12s).',
+    'Healing Link': 'Heal Friend e Nature\'s Embrace também te curam 1/4 do valor.',
+    'Gift of Life': 'Golpe mortal pequeno é absorvido com cura; cooldowns −60s. Uma vez a cada 30/20/10h.',
+    "Executioner's Throw": 'Arremesso que ricocheteia em 2/3/4 corpos, bem mais forte em alvo abaixo de 30%.',
+    'Combat Mastery': 'Bate mais conforme o alvo perde vida e recebe menos conforme você perde.',
+    'Avatar of Steel': 'Avatar: 15s de golpes sempre críticos e 5/10/15% menos dano recebido.',
+    'Avatar of Light': 'Avatar: 15s de golpes sempre críticos e 5/10/15% menos dano recebido.',
+    'Avatar of Storm': 'Avatar: 15s de golpes sempre críticos e 5/10/15% menos dano recebido.',
+    'Avatar of Nature': 'Avatar: 15s de golpes sempre críticos e 5/10/15% menos dano recebido.',
+    'Divine Grenade': 'Golpe sagrado que explode ao redor do alvo, +30/60/100% por estágio.',
+    'Divine Empowerment': 'Campo sagrado por 5s; em cima dele você bate 8/10/12% mais forte.',
+    'Beam Mastery': 'Beams +10/12/14% de dano e reduzem cooldowns. Libera Great Death Beam.',
+    'Drain Body': '+3/4/5% de life leech e +2/3/4% de mana leech em alvos enfraquecidos.',
+    'Blessing of the Grove': '+5/7.5/10% de cura em alvo abaixo de 60% de vida (dobra abaixo de 30%).',
+    'Twin Burst': 'Libera Terra Burst e Ice Burst: anel ao redor, +20/40/60% em alvos acima de 60%.',
+  };
+
+  // ---------- Adjacência (mesmo algoritmo do cliente) ----------
+  function slotOf(color, ring, pos) {
+    const s = SLICES.find((x) => x.color === color && x.ring === ring && x.pos === pos);
+    if (!s) throw new Error(`wheel slot ${color}/${ring}/${pos} missing`);
+    return s.index;
+  }
+  const NEIGHBORS = (() => {
+    const d = SLICES.map(() => new Set());
+    const e = (a, b) => { d[a].add(b); d[b].add(a); };
+    for (const c of COLORS) {
+      for (let n = 1; n <= 5; n++) {
+        const r = SLOTS_PER_RING[n - 1];
+        for (let i = 0; i < r; i++) {
+          const a = slotOf(c, n, i);
+          if (i + 1 < r) e(a, slotOf(c, n, i + 1));
+          if (n < 5) {
+            const l = SLOTS_PER_RING[n];
+            for (let u = 0; u < l; u++) {
+              if (Math.min((i + 1) / r, (u + 1) / l) - Math.max(i / r, u / l) > 1e-9) e(a, slotOf(c, n + 1, u));
+            }
+          }
+        }
+      }
+    }
+    for (const [t, n, r, i] of BRIDGES) {
+      for (const a of [2, 3]) {
+        const l = SLOTS_PER_RING[a - 1];
+        e(slotOf(t, a, n === 'top' ? 0 : l - 1), slotOf(r, a, i === 'top' ? 0 : l - 1));
+      }
+    }
+    return d.map((s) => [...s].sort((a, b) => a - b));
+  })();
+
+  // Fatias abertas (mesma função do cliente: só depende de quais estão cheias e dos pontos totais)
+  function openSlices(points, total) {
+    const full = SLICES.map((s) => (points[s.index] || 0) >= s.tier);
+    const open = SLICES.map((s) => s.tier === 50);
+    const stack = [];
+    for (const s of SLICES) if (s.tier === 50 && full[s.index]) stack.push(s.index);
+    while (stack.length) {
+      const i = stack.pop();
+      for (const a of NEIGHBORS[i]) {
+        if (open[a] || total < UNLOCK_TOTAL[SLICES[a].tier]) continue;
+        open[a] = true;
+        if (full[a]) stack.push(a);
+      }
+    }
+    return open;
+  }
+
+  // Validação igual à do cliente: cada fatia com pontos precisa estar aberta,
+  // o total não passa do disponível e nenhuma fatia passa do máximo.
+  function isLegal(points, total) {
+    let spent = 0;
+    for (const s of SLICES) {
+      const p = points[s.index] || 0;
+      if (p < 0 || p > s.tier) return false;
+      spent += p;
+    }
+    if (spent > total) return false;
+    const open = openSlices(points, total);
+    return SLICES.every((s) => !(points[s.index] > 0) || (open[s.index] && total >= UNLOCK_TOTAL[s.tier]));
+  }
+
+  // Resumo de perks (mesma conta do cliente)
+  function summarize(points, voc) {
+    const pp = PER_POINT[voc];
+    const r = {
+      health: 0, mana: 0, capacity: 0, mitigation: 0, lifeLeech: 0, manaLeech: 0, skill: 0,
+      spells: { A: 0, B: 0, C: 0, D: 0, E: 0 }, dedication: { green: false, purple: false },
+      colorPoints: { green: 0, red: 0, purple: 0, blue: 0 }, stages: { green: 0, red: 0, purple: 0, blue: 0 }, flat: 0,
+    };
+    for (const s of SLICES) {
+      const p = points[s.index] || 0;
+      if (p <= 0) continue;
+      r.colorPoints[s.color] += p;
+      if (s.stat === 'health') r.health += pp.health * p;
+      else if (s.stat === 'mana') r.mana += pp.mana * p;
+      else if (s.stat === 'capacity') r.capacity += pp.capacity * p;
+      else if (s.stat === 'mitigation') r.mitigation += MITIGATION_PER_POINT * p;
+      else if (s.stat === 'vitals') { r.health += pp.health * p; r.mana += pp.mana * p; }
+      if (p < s.tier) continue;
+      const k = s.full.kind;
+      if (k === 'mana-leech') r.manaLeech += MANA_LEECH_FULL;
+      else if (k === 'life-leech') r.lifeLeech += LIFE_LEECH_FULL;
+      else if (k === 'skill' || k === 'vessel') r.skill += 1;
+      else if (k === 'spell') r.spells[s.full.spell] += 1;
+      else if (k === 'dedication') r.dedication[s.color] = true;
+    }
+    r.mitigation = Math.round(r.mitigation * 100) / 100;
+    for (const c of COLORS) {
+      let st = 0;
+      for (const t of STAGE_AT) if (r.colorPoints[c] >= t) st++;
+      r.stages[c] = st;
+      if (st > 0) r.flat += STAGE_FLAT[st - 1];
+    }
+    return r;
+  }
+
+  // ---------- Avaliação (pesos editáveis: estimativas de impacto, não números oficiais) ----------
+  // Cada item vale pontos em categorias: dano, defesa, cura, sustento, utilidade.
+  const VALUES = {
+    perPoint: { // valor por ponto de stat
+      health: (voc) => ({ defesa: PER_POINT[voc].health / 30 }),
+      mana: (voc) => ({ sustento: PER_POINT[voc].mana / 60 }),
+      capacity: (voc) => ({ utilidade: PER_POINT[voc].capacity / 400 }),
+      mitigation: () => ({ defesa: MITIGATION_PER_POINT * 0.3 }),
+    },
+    lifeLeech: { sustento: 1.2, defesa: 0.4 },
+    manaLeech: { sustento: 1.0 },
+    skill: (voc) => (voc === 'druid' ? { dano: 0.6, cura: 0.6 } : { dano: 1.2 }),
+    flatPerStage: [{ dano: 0.5, cura: 0.5 }, { dano: 1.1, cura: 1.1 }, { dano: 2.5, cura: 2.5 }],
+    spells: {
+      knight: {
+        A: [{ dano: 2 }, { dano: 3 }], B: [{ defesa: 3, cura: 1 }, { defesa: 3 }], C: [{ dano: 2 }, { dano: 2 }],
+        D: [{ sustento: 0.5 }, { utilidade: 1, defesa: 0.5 }], E: [{ sustento: 1.5 }, { dano: 4 }],
+      },
+      paladin: {
+        A: [{ dano: 3 }, { dano: 4 }], B: [{ defesa: 0.5 }, { defesa: 0.5 }], C: [{ dano: 2 }, { dano: 2 }],
+        D: [{ utilidade: 1, defesa: 0.5 }, { defesa: 1 }], E: [{ sustento: 1 }, { dano: 4 }],
+      },
+      sorcerer: {
+        A: [{}, { defesa: 2 }], B: [{ dano: 2 }, { dano: 3 }], C: [{ dano: 3 }, { dano: 4 }],
+        D: [{ defesa: 1.5 }, { defesa: 1.5 }], E: [{ dano: 2 }, { dano: 2 }],
+      },
+      druid: {
+        A: [{ cura: 2 }, { cura: 2 }], B: [{ dano: 2.5 }, { sustento: 2 }], C: [{ dano: 2.5 }, { dano: 2 }],
+        D: [{ cura: 2 }, { cura: 2 }], E: [{ cura: 2 }, { cura: 3 }],
+      },
+    },
+    dedication: {
+      'Battle Instinct': { defesa: 2, dano: 1 }, 'Battle Healing': { defesa: 3, cura: 1 },
+      'Positional Tactics': { dano: 2, cura: 0.5 }, 'Ballistic Mastery': { dano: 3 },
+      'Runic Mastery': { dano: 2 }, 'Focus Mastery': { dano: 5 }, 'Healing Link': { cura: 4 },
+    },
+    revelation: { // estágio 1, 2, 3
+      'Gift of Life': [{ defesa: 3 }, { defesa: 4 }, { defesa: 5 }],
+      "Executioner's Throw": [{ dano: 5 }, { dano: 7 }, { dano: 9 }],
+      'Combat Mastery': [{ dano: 3, defesa: 2 }, { dano: 4, defesa: 3 }, { dano: 5, defesa: 4 }],
+      // Avatares: 15s de efeito com recarga de 2h (cliente do jogo) -> ~0,2% do tempo de hunt
+      'Avatar of Steel': [{ dano: 0.3, defesa: 0.2 }, { dano: 0.4, defesa: 0.3 }, { dano: 0.6, defesa: 0.5 }],
+      'Avatar of Light': [{ dano: 0.3, defesa: 0.2 }, { dano: 0.4, defesa: 0.3 }, { dano: 0.6, defesa: 0.5 }],
+      'Avatar of Storm': [{ dano: 0.3, defesa: 0.2 }, { dano: 0.4, defesa: 0.3 }, { dano: 0.6, defesa: 0.5 }],
+      'Avatar of Nature': [{ dano: 0.3, cura: 0.2, defesa: 0.2 }, { dano: 0.4, cura: 0.3, defesa: 0.3 }, { dano: 0.6, cura: 0.4, defesa: 0.5 }],
+      'Divine Grenade': [{ dano: 5 }, { dano: 7 }, { dano: 10 }],
+      'Divine Empowerment': [{ dano: 6 }, { dano: 8 }, { dano: 10 }],
+      'Beam Mastery': [{ dano: 6 }, { dano: 8 }, { dano: 10 }],
+      'Drain Body': [{ sustento: 3 }, { sustento: 4 }, { sustento: 5 }],
+      'Blessing of the Grove': [{ cura: 5 }, { cura: 7 }, { cura: 10 }],
+      'Twin Burst': [{ dano: 5 }, { dano: 7 }, { dano: 9 }],
+    },
+  };
+
+  // Valores do perfil "Dano máximo": cada número é uma estimativa de % de dano a mais na hunt,
+  // a partir de recarga, mana e área de cada magia no cliente do jogo. Dano é calculado no servidor,
+  // então são estimativas (ver testes de sensibilidade).
+  const VALUES_DANO = {
+    perPoint: VALUES.perPoint,
+    lifeLeech: { sustento: 1 }, manaLeech: { sustento: 1 },
+    skill: (voc) => (voc === 'knight' || voc === 'paladin' ? { dano: 0.8 } : { dano: 1.0 }),
+    flatPerStage: [{ dano: 0.4 }, { dano: 0.9 }, { dano: 2.0 }],
+    spells: {
+      knight: { A: [{ dano: 5.0 }, { dano: 1.9 }], B: [{}, {}], C: [{ dano: 4.8 }, { dano: 2.0 }], D: [{}, {}], E: [{ sustento: 1 }, { dano: 2.5 }] },
+      paladin: { A: [{ dano: 3.3 }, { dano: 25 }], B: [{}, {}], C: [{}, {}], D: [{}, {}], E: [{ sustento: 1 }, { dano: 2.0 }] },
+      sorcerer: { A: [{}, {}], B: [{ dano: 3.0 }, { dano: 2.0 }], C: [{ dano: 1.25 }, { dano: 2.8 }], D: [{}, {}], E: [{ dano: 0.3 }, { dano: 1.0 }] },
+      druid: { A: [{}, {}], B: [{ dano: 0.8 }, { sustento: 1 }], C: [{ dano: 0.9 }, { dano: 2.25 }], D: [{}, {}], E: [{}, {}] },
+    },
+    dedication: {
+      'Battle Instinct': { dano: 1.5 }, 'Battle Healing': {}, 'Positional Tactics': { dano: 2.4 }, 'Ballistic Mastery': { dano: 0.8 },
+      'Runic Mastery': { dano: 0.3 }, 'Focus Mastery': { dano: 1.5 }, 'Healing Link': {},
+    },
+    revelation: {
+      'Gift of Life': [{}, {}, {}],
+      "Executioner's Throw": [{ dano: 4 }, { dano: 6 }, { dano: 8 }],
+      'Combat Mastery': [{ dano: 3 }, { dano: 4 }, { dano: 5 }],
+      'Avatar of Steel': [{ dano: 0.3 }, { dano: 0.4 }, { dano: 0.6 }], 'Avatar of Light': [{ dano: 0.3 }, { dano: 0.4 }, { dano: 0.6 }],
+      'Avatar of Storm': [{ dano: 0.3 }, { dano: 0.4 }, { dano: 0.6 }], 'Avatar of Nature': [{ dano: 0.3 }, { dano: 0.4 }, { dano: 0.6 }],
+      'Divine Grenade': [{ dano: 3 }, { dano: 5 }, { dano: 7 }],
+      'Divine Empowerment': [{ dano: 1.3 }, { dano: 1.6 }, { dano: 1.9 }],
+      'Beam Mastery': [{ dano: 4 }, { dano: 6 }, { dano: 8 }],
+      'Drain Body': [{ sustento: 3 }, { sustento: 4 }, { sustento: 5 }],
+      'Blessing of the Grove': [{}, {}, {}],
+      'Twin Burst': [{ dano: 5 }, { dano: 7 }, { dano: 9 }],
+    },
+  };
+  const VALS = (w) => (w && w.puro ? VALUES_DANO : VALUES);
+
+  const PROFILES = {
+    danoMax: { label: 'Dano máximo (recomendado)', w: { puro: true, dano: 1, defesa: 0.02, cura: 0, sustento: 0.05, utilidade: 0 } },
+    dano: { label: 'Dano com defesa (hunt em party)', w: { dano: 1, defesa: 0.4, cura: 0.3, sustento: 0.6, utilidade: 0.1 } },
+    tank: { label: 'Tank / sobrevivência', w: { dano: 0.5, defesa: 1, cura: 0.6, sustento: 0.8, utilidade: 0.2 } },
+    cura: { label: 'Cura / suporte', w: { dano: 0.4, defesa: 0.6, cura: 1, sustento: 0.8, utilidade: 0.2 } },
+    equilibrado: { label: 'Equilibrado', w: { dano: 0.8, defesa: 0.8, cura: 0.7, sustento: 0.7, utilidade: 0.2 } },
+  };
+  const DEFAULT_PROFILE = { knight: 'danoMax', paladin: 'danoMax', sorcerer: 'danoMax', druid: 'danoMax' };
+
+  const dot = (v, w) => (v.dano || 0) * w.dano + (v.defesa || 0) * w.defesa + (v.cura || 0) * w.cura + (v.sustento || 0) * w.sustento + (v.utilidade || 0) * w.utilidade;
+
+  function score(points, voc, w) {
+    const s = summarize(points, voc);
+    let total = 0;
+    const per = VALS(w).perPoint;
+    const pp = PER_POINT[voc];
+    total += dot(per.health(voc), w) * (s.health / pp.health);
+    total += dot(per.mana(voc), w) * (s.mana / pp.mana);
+    total += dot(per.capacity(voc), w) * (s.capacity / pp.capacity);
+    total += dot(per.mitigation(), w) * (s.mitigation / MITIGATION_PER_POINT);
+    total += dot(VALS(w).lifeLeech, w) * (s.lifeLeech / LIFE_LEECH_FULL);
+    total += dot(VALS(w).manaLeech, w) * (s.manaLeech / MANA_LEECH_FULL);
+    total += dot(VALS(w).skill(voc), w) * s.skill;
+    for (const k of ['A', 'B', 'C', 'D', 'E']) {
+      const g = Math.min(2, s.spells[k]);
+      const sv = VALS(w).spells[voc][k];
+      if (g >= 1) total += dot(sv[0], w);
+      if (g >= 2) total += dot(sv[1], w);
+    }
+    for (const c of ['green', 'purple']) if (s.dedication[c]) total += dot(VALS(w).dedication[DEDICATION[voc][c]], w);
+    for (const c of COLORS) {
+      const st = s.stages[c];
+      if (st > 0) {
+        total += dot(VALS(w).flatPerStage[st - 1], w);
+        total += dot(VALS(w).revelation[REVELATION[voc][c]][st - 1], w);
+      }
+    }
+    return total;
+  }
+
+  // Valor por ponto de colocar pontos parciais numa fatia (só o stat conta até encher)
+  function statValuePerPoint(slice, voc, w) {
+    const per = VALS(w).perPoint;
+    if (slice.stat === 'vitals') return dot(per.health(voc), w) + dot(per.mana(voc), w);
+    if (slice.stat === 'mitigation') return dot(per.mitigation(), w);
+    return dot(per[slice.stat](voc), w);
+  }
+
+  // Coloca as sobras em fatias abertas de forma gulosa, testando também
+  // empurrar uma cor para o próximo estágio de revelação.
+  function completeLeftover(points, total, voc, w) {
+    let best = { points: points.slice(), value: score(points, voc, w) };
+    const spent = points.reduce((a, b) => a + b, 0);
+    let left = total - spent;
+    if (left <= 0) return best;
+    const open = openSlices(points, total);
+    const cands = SLICES.filter((s) => open[s.index] && total >= UNLOCK_TOTAL[s.tier] && points[s.index] < s.tier);
+    if (!cands.length) return best;
+    const tryOrder = (order) => {
+      const p = points.slice();
+      let l = left;
+      for (const s of order) {
+        if (l <= 0) break;
+        const add = Math.min(l, s.tier - p[s.index]);
+        p[s.index] += add;
+        l -= add;
+      }
+      const v = score(p, voc, w);
+      if (v > best.value + 1e-9) best = { points: p, value: v };
+    };
+    // 1) melhor stat por ponto
+    tryOrder(cands.slice().sort((a, b) => statValuePerPoint(b, voc, w) - statValuePerPoint(a, voc, w)));
+    // 2) priorizar cada cor (para alcançar estágio de revelação)
+    for (const c of COLORS) {
+      tryOrder(cands.slice().sort((a, b) => (b.color === c) - (a.color === c) || statValuePerPoint(b, voc, w) - statValuePerPoint(a, voc, w)));
+    }
+    return best;
+  }
+
+  // Busca em feixe: cada passo enche uma fatia aberta. Guarda a ordem de preenchimento.
+  function optimizeBeam(level, voc, w, opts = {}) {
+    const total = Math.max(0, level - 50);
+    const width = opts.beam || 600;
+    const empty = SLICES.map(() => 0);
+    if (total === 0) return { total, points: empty, order: [], value: 0 };
+    const bestStatPerPoint = Math.max(...SLICES.map((s) => statValuePerPoint(s, voc, w)));
+    const start = opts.start ? opts.start.slice() : empty;
+    let beam = [{ points: start, order: [], spent: start.reduce((a, b) => a + b, 0) }];
+    let best = Object.assign({ order: [] }, completeLeftover(start, total, voc, w));
+    const seen = new Set();
+    while (beam.length) {
+      const next = [];
+      for (const st of beam) {
+        const open = openSlices(st.points, total);
+        for (const s of SLICES) {
+          const cur = st.points[s.index];
+          if (cur >= s.tier || !open[s.index] || total < UNLOCK_TOTAL[s.tier]) continue;
+          const need = s.tier - cur;
+          if (st.spent + need > total) continue;
+          const p = st.points.slice();
+          p[s.index] = s.tier;
+          const key = p.map((x) => (x ? 1 : 0)).join('');
+          if (seen.has(key)) continue;
+          seen.add(key);
+          const spent = st.spent + need;
+          // valor rápido: build atual + sobras no melhor stat por ponto (estimativa)
+          const value = score(p, voc, w) + (total - spent) * bestStatPerPoint;
+          next.push({ points: p, order: st.order.concat(s.index), spent, value, potential: potential(p, total, spent, voc, w) });
+        }
+      }
+      if (!next.length) break;
+      const half = Math.ceil(width / 2);
+      const byValue = next.slice().sort((a, b) => b.value - a.value).slice(0, half);
+      const byPot = next.slice().sort((a, b) => b.value + b.potential - (a.value + a.potential)).slice(0, width);
+      const keep = new Map();
+      for (const n of byValue.concat(byPot)) {
+        const k = n.points.join(',');
+        if (!keep.has(k)) keep.set(k, n);
+        if (keep.size >= width) break;
+      }
+      beam = [...keep.values()];
+      // avaliação completa (com sobras reais) só para quem ficou no feixe
+      for (const n of beam) {
+        const done = completeLeftover(n.points, total, voc, w);
+        if (done.value > best.value + 1e-9) best = { points: done.points, value: done.value, order: n.order };
+      }
+    }
+    return { total, points: best.points, order: opts.noOrder ? [] : buildOrder(best.points, total, best.order, voc, w), value: best.value };
+  }
+
+  // ---------- Otimizador exato (programação dinâmica) ----------
+  // A pontuação se decompõe por cor: stats, leech, skill, dedicação e revelação dependem só da cor;
+  // as magias aumentadas ligam pares de cores (A/B: verde+roxo; C/D/E: vermelho+azul).
+  // Cada cor é resolvida enumerando todos os conjuntos de fatias cheias alcançáveis a partir do seu centro,
+  // com sobras parciais nas fatias abertas; depois os pares e o total são combinados por orçamento.
+  const SPELL_SLOTS = (() => {
+    const m = {};
+    for (const s of SLICES) if (s.full.kind === 'spell') (m[s.full.spell] = m[s.full.spell] || []).push(s.index);
+    return m;
+  })();
+
+  function colorTable(c, T, voc, w) {
+    const cs = SLICES.filter((s) => s.color === c);
+    const local = new Map(cs.map((s, i) => [s.index, i]));
+    const center = cs.findIndex((s) => s.tier === 50);
+    const allowed = cs.map((s) => T >= UNLOCK_TOTAL[s.tier]);
+    const nb = cs.map((s) => NEIGHBORS[s.index].filter((j) => local.has(j)).map((j) => local.get(j)));
+    const spellLetters = [...new Set(cs.filter((s) => s.full.kind === 'spell').map((s) => s.full.spell))].sort();
+    const F = 1 << spellLetters.length;
+    const B = Math.min(T, 1000);
+    const H = new Float64Array((B + 1) * F).fill(-Infinity);
+    const choice = new Int32Array((B + 1) * F).fill(-1);
+    const perPt = cs.map((s) => statValuePerPoint(s, voc, w));
+    const fullVal = cs.map((s) => {
+      const k = s.full.kind;
+      if (k === 'mana-leech') return dot(VALS(w).manaLeech, w);
+      if (k === 'life-leech') return dot(VALS(w).lifeLeech, w);
+      if (k === 'skill' || k === 'vessel') return dot(VALS(w).skill(voc), w);
+      if (k === 'dedication') return dot(VALS(w).dedication[DEDICATION[voc][s.color]], w);
+      return 0; // magias são somadas no par
+    });
+    const rev = REVELATION[voc][c];
+    const revAt = (b) => {
+      let st = 0;
+      for (const t of STAGE_AT) if (b >= t) st++;
+      return st ? dot(VALS(w).flatPerStage[st - 1], w) + dot(VALS(w).revelation[rev][st - 1], w) : 0;
+    };
+    const revTable = new Float64Array(B + 1);
+    for (let b = 0; b <= B; b++) revTable[b] = revAt(b);
+
+    // enumera conjuntos de fatias cheias alcançáveis
+    const seen = new Set([0]);
+    const stack = [0];
+    const masks = [];
+    while (stack.length) {
+      const m = stack.pop();
+      masks.push(m);
+      const open = new Set([center]);
+      for (let i = 0; i < cs.length; i++) if (m & (1 << i)) for (const j of nb[i]) open.add(j);
+      for (const i of open) {
+        if (m & (1 << i) || !allowed[i]) continue;
+        const nm = m | (1 << i);
+        if (!seen.has(nm)) { seen.add(nm); stack.push(nm); }
+      }
+    }
+    const info = new Map();
+    for (const m of masks) {
+      let cost = 0, base = 0, flags = 0;
+      const open = new Set([center]);
+      for (let i = 0; i < cs.length; i++) {
+        if (!(m & (1 << i))) continue;
+        cost += cs[i].tier;
+        base += perPt[i] * cs[i].tier + fullVal[i];
+        if (cs[i].full.kind === 'spell') flags |= 1 << spellLetters.indexOf(cs[i].full.spell);
+        for (const j of nb[i]) open.add(j);
+      }
+      if (cost > B) continue;
+      // sobras: fatias abertas e não cheias, da melhor para a pior por ponto
+      const part = [...open].filter((i) => !(m & (1 << i)) && allowed[i]).sort((a, b) => perPt[b] - perPt[a]);
+      info.set(m, { cost, part });
+      let cap = 0;
+      for (const i of part) cap += cs[i].tier - 1; // parcial = sem encher
+      const maxX = Math.min(cap, B - cost);
+      let pv = 0, pi = 0, used = 0;
+      for (let x = 0; x <= maxX; x++) {
+        if (x > 0) {
+          while (pi < part.length && used >= cs[part[pi]].tier - 1) { pi++; used = 0; }
+          pv += perPt[part[pi]];
+          used++;
+        }
+        const b = cost + x;
+        const v = base + pv + revTable[b];
+        const k = b * F + flags;
+        if (v > H[k]) { H[k] = v; choice[k] = m; }
+      }
+    }
+    return { c, cs, B, F, H, choice, info, spellLetters };
+  }
+
+  function pairTable(A, Bt, voc, w, maxB) {
+    const letters = [...new Set(A.spellLetters.concat(Bt.spellLetters))];
+    const sv = VALS(w).spells[voc];
+    const spellVal = (fa, fb) => {
+      let v = 0;
+      for (const L of letters) {
+        const n = (A.spellLetters.includes(L) && fa & (1 << A.spellLetters.indexOf(L)) ? 1 : 0)
+          + (Bt.spellLetters.includes(L) && fb & (1 << Bt.spellLetters.indexOf(L)) ? 1 : 0);
+        if (n >= 1) v += dot(sv[L][0], w);
+        if (n >= 2) v += dot(sv[L][1], w);
+      }
+      return v;
+    };
+    const P = Math.min(maxB, A.B + Bt.B);
+    const V = new Float64Array(P + 1).fill(-Infinity);
+    const arg = new Int32Array((P + 1) * 3).fill(-1);
+    for (let fa = 0; fa < A.F; fa++) {
+      for (let fb = 0; fb < Bt.F; fb++) {
+        const s = spellVal(fa, fb);
+        for (let ba = 0; ba <= A.B; ba++) {
+          const ha = A.H[ba * A.F + fa];
+          if (ha === -Infinity) continue;
+          const lim = Math.min(Bt.B, P - ba);
+          for (let bb = 0; bb <= lim; bb++) {
+            const hb = Bt.H[bb * Bt.F + fb];
+            if (hb === -Infinity) continue;
+            const v = ha + hb + s;
+            const b = ba + bb;
+            if (v > V[b]) { V[b] = v; arg[b * 3] = ba; arg[b * 3 + 1] = fa; arg[b * 3 + 2] = fb; }
+          }
+        }
+      }
+    }
+    return { V, arg, P, A, Bt };
+  }
+
+  function materialize(tab, b, f, points, total) {
+    const m = tab.choice[b * tab.F + f];
+    const { cost, part } = tab.info.get(m);
+    for (let i = 0; i < tab.cs.length; i++) if (m & (1 << i)) points[tab.cs[i].index] = tab.cs[i].tier;
+    let x = b - cost;
+    for (const i of part) {
+      if (x <= 0) break;
+      const add = Math.min(x, tab.cs[i].tier - 1);
+      points[tab.cs[i].index] += add;
+      x -= add;
+    }
+  }
+
+  // Busca local: tira 1 ou 2 fatias cheias da build e refaz o resto com uma busca curta.
+  function improve(result, level, voc, w, opts = {}) {
+    const total = result.total;
+    let cur = { points: result.points.slice(), value: score(result.points, voc, w) };
+    const width = opts.width || 40;
+    const fullsOf = (p) => SLICES.filter((s) => p[s.index] >= s.tier).map((s) => s.index);
+    const tryBase = (drop) => {
+      const q = SLICES.map((s) => (cur.points[s.index] >= s.tier && !drop.includes(s.index) ? s.tier : 0));
+      if (!isLegal(q, total)) return false;
+      const r = optimizeBeam(level, voc, w, { beam: width, start: q, noOrder: true });
+      if (r.value > cur.value + 1e-9) { cur = { points: r.points, value: r.value }; return true; }
+      return false;
+    };
+    let rounds = 0;
+    while (rounds++ < (opts.rounds || 6)) {
+      let improved = false;
+      const fulls = fullsOf(cur.points);
+      for (const i of fulls) if (tryBase([i])) { improved = true; break; }
+      if (!improved && opts.pairs !== false) {
+        const f2 = fullsOf(cur.points);
+        outer: for (let a = 0; a < f2.length; a++) for (let b = a + 1; b < f2.length; b++) {
+          if (tryBase([f2[a], f2[b]])) { improved = true; break outer; }
+        }
+      }
+      if (!improved) break;
+    }
+    return { total, points: cur.points, value: cur.value, order: buildOrder(cur.points, total, null, voc, w) };
+  }
+
+  // Força bruta: todas as combinações de fatias cheias alcançáveis (inclusive por pontes).
+  // Viável até ~nível 700 (dezenas de milhares de combinações).
+  function exactSearch(level, voc, w, opts = {}) {
+    const total = Math.max(0, level - 50);
+    const limit = opts.maxSets || 200000;
+    const seen = new Set(['0']);
+    const st = [[0n, 0]];
+    let best = null, n = 0;
+    while (st.length) {
+      const [m, spent] = st.pop();
+      if (++n > limit) return null;
+      const p = SLICES.map((s, i) => ((m >> BigInt(i)) & 1n ? s.tier : 0));
+      const done = completeLeftover(p, total, voc, w);
+      if (!best || done.value > best.value) best = done;
+      const open = openSlices(p, total);
+      for (let i = 0; i < 36; i++) {
+        if ((m >> BigInt(i)) & 1n) continue;
+        const t = SLICES[i].tier;
+        if (!open[i] || total < UNLOCK_TOTAL[t] || spent + t > total) continue;
+        const nm = m | (1n << BigInt(i));
+        const k = nm.toString(36);
+        if (seen.has(k)) continue;
+        seen.add(k);
+        st.push([nm, spent + t]);
+      }
+    }
+    return { total, points: best.points, value: best.value, order: buildOrder(best.points, total, null, voc, w), sets: n, exact: true };
+  }
+
+  // Melhor de três métodos: programação dinâmica por cor, busca em feixe (com pontes) e busca local.
+  function optimizeBest(level, voc, w, opts = {}) {
+    const a = optimizeExact(level, voc, w);
+    const b = optimizeBeam(level, voc, w, { beam: opts.beam || (opts.heavy ? 1500 : 300) });
+    const start = a.value >= b.value ? a : b;
+    const c = improve(start, level, voc, w, { width: opts.width || (opts.heavy ? 80 : 30), pairs: opts.pairs });
+    const best = [a, b, c].sort((x, y) => y.value - x.value)[0];
+    return best;
+  }
+
+  function optimizeExact(level, voc, w) {
+    const total = Math.max(0, level - 50);
+    const T = Math.min(total, 4000);
+    const points = SLICES.map(() => 0);
+    if (T === 0) return { total, points, order: [], value: 0 };
+    const t = {};
+    for (const c of COLORS) t[c] = colorTable(c, T, voc, w);
+    const gp = pairTable(t.green, t.purple, voc, w, T);
+    const rb = pairTable(t.red, t.blue, voc, w, T);
+    let best = -Infinity, bg = -1, br = -1;
+    for (let a = 0; a <= gp.P; a++) {
+      if (gp.V[a] === -Infinity) continue;
+      const lim = Math.min(rb.P, T - a);
+      for (let b = 0; b <= lim; b++) {
+        if (rb.V[b] === -Infinity) continue;
+        const v = gp.V[a] + rb.V[b];
+        if (v > best + 1e-12) { best = v; bg = a; br = b; }
+      }
+    }
+    for (const [pt, b] of [[gp, bg], [rb, br]]) {
+      const ba = pt.arg[b * 3], fa = pt.arg[b * 3 + 1], fb = pt.arg[b * 3 + 2];
+      materialize(pt.A, ba, fa, points, T);
+      materialize(pt.Bt, b - ba, fb, points, T);
+    }
+    const order = buildOrder(points, total, null, voc, w);
+    return { total, points, order, value: score(points, voc, w) };
+  }
+
+  // Monta uma sequência válida de preenchimento para chegar na build:
+  // primeiro as fatias cheias (na ordem preferida, sempre que já estiverem abertas), depois as parciais.
+  function buildOrder(points, total, preferred, voc, w) {
+    const target = points.slice();
+    const cur = SLICES.map(() => 0);
+    const order = [];
+    const fulls = SLICES.filter((s) => target[s.index] >= s.tier).map((s) => s.index);
+    // sem ordem preferida: a cada passo, a fatia liberada que mais rende por ponto agora
+    const rank = (i) => {
+      if (preferred && preferred.length) { const k = preferred.indexOf(i); return k === -1 ? 1000 + i : k; }
+      if (!voc) return i;
+      const q = cur.slice(); q[i] = SLICES[i].tier;
+      return -(score(q, voc, w) - score(cur, voc, w)) / SLICES[i].tier;
+    };
+    const pending = new Set(fulls);
+    while (pending.size) {
+      const open = openSlices(cur, total);
+      const ready = [...pending].filter((i) => open[i] && total >= UNLOCK_TOTAL[SLICES[i].tier]).sort((a, b) => rank(a) - rank(b));
+      if (!ready.length) break; // não deveria acontecer numa build válida
+      const i = ready[0];
+      cur[i] = SLICES[i].tier;
+      order.push({ index: i, points: SLICES[i].tier });
+      pending.delete(i);
+    }
+    for (const s of SLICES) {
+      const p = target[s.index];
+      if (p > 0 && p < s.tier) order.push({ index: s.index, points: p });
+    }
+    return order;
+  }
+
+  // Aplica a ordem até o nível informado (o que dá para colocar agora)
+  function pointsAtLevel(order, level) {
+    const total = Math.max(0, level - 50);
+    const p = SLICES.map(() => 0);
+    let left = total;
+    for (const step of order) {
+      if (left <= 0) break;
+      const s = SLICES[step.index];
+      const open = openSlices(p, total);
+      if (!open[s.index] || total < UNLOCK_TOTAL[s.tier]) continue;
+      const add = Math.min(left, step.points - p[s.index]);
+      if (add <= 0) continue;
+      p[s.index] += add;
+      left -= add;
+    }
+    return p;
+  }
+
+  // Estimativa otimista do que ainda dá para ganhar subindo estágios de revelação
+  function potential(points, total, spent, voc, w) {
+    const left = total - spent;
+    if (left <= 0) return 0;
+    const s = summarize(points, voc);
+    let pot = 0;
+    for (const c of COLORS) {
+      const st = s.stages[c];
+      if (st >= 3) continue;
+      const need = STAGE_AT[st] - s.colorPoints[c];
+      if (need > left) continue;
+      const gain = dot(VALS(w).flatPerStage[st], w) + dot(VALS(w).revelation[REVELATION[voc][c]][st], w)
+        - (st > 0 ? dot(VALS(w).flatPerStage[st - 1], w) + dot(VALS(w).revelation[REVELATION[voc][c]][st - 1], w) : 0);
+      pot = Math.max(pot, gain * (1 - need / Math.max(left, 1)) * 0.8);
+    }
+    return pot;
+  }
+
+  // Pontos de uma build num nível menor seguindo a ordem (prefixo válido)
+  function prefixAt(order, level, finalPoints) {
+    const total = Math.max(0, level - 50);
+    const p = SLICES.map(() => 0);
+    let left = total;
+    for (const i of order) {
+      const s = SLICES[i];
+      const open = openSlices(p, total);
+      if (!open[i] || total < UNLOCK_TOTAL[s.tier]) break;
+      const add = Math.min(left, s.tier);
+      p[i] = add;
+      left -= add;
+      if (add < s.tier || left <= 0) break;
+    }
+    // extras parciais da build final (fatias não cheias), se couberem e estiverem abertas
+    if (left > 0 && finalPoints) {
+      for (const s of SLICES) {
+        if (left <= 0) break;
+        const want = finalPoints[s.index] - p[s.index];
+        if (want <= 0) continue;
+        const open = openSlices(p, total);
+        if (!open[s.index] || total < UNLOCK_TOTAL[s.tier]) continue;
+        const add = Math.min(left, want);
+        p[s.index] += add;
+        left -= add;
+      }
+    }
+    return p;
+  }
+
+  const api = {
+    COLORS, SLICES, NEIGHBORS, UNLOCK_TOTAL, PER_POINT, SPELLS, DEDICATION, REVELATION, PERK_TEXT, SKILL_NAME,
+    STAGE_AT, STAGE_FLAT, VALUES, PROFILES, DEFAULT_PROFILE,
+    openSlices, isLegal, summarize, score, optimize: (level, voc, w, opts) => optimizeBest(level, voc, w, opts), optimizeBest, optimizeExact, optimizeBeam, improve, exactSearch,
+    prefixAt, completeLeftover, buildOrder, pointsAtLevel,
+  };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  else root.WheelEngine = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>
+(() => {
+  const E = window.WheelEngine;
+  const VOC = [
+    { id: 'knight', label: 'Elite Knight', short: 'EK' },
+    { id: 'paladin', label: 'Royal Paladin', short: 'RP' },
+    { id: 'sorcerer', label: 'Master Sorcerer', short: 'MS' },
+    { id: 'druid', label: 'Elder Druid', short: 'ED' },
+  ];
+  const COLOR_PT = { green: 'Verde', red: 'Vermelho', purple: 'Roxo', blue: 'Azul' };
+  const STAT_PT = { health: 'Pontos de vida', mana: 'Mana', capacity: 'Capacidade', mitigation: 'Mitigation Multiplier', vitals: 'Hit Points & Mana' };
+  const CATS = [['dano', 'Dano'], ['defesa', 'Defesa'], ['cura', 'Cura'], ['sustento', 'Mana e leech'], ['utilidade', 'Utilidade']];
+
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem('roda:' + k); return v === null ? d : JSON.parse(v); } catch { return d; } },
+    set(k, v) { try { localStorage.setItem('roda:' + k, JSON.stringify(v)); } catch {} },
+  };
+
+  const state = {
+    voc: store.get('voc', 'knight'),
+    level: store.get('level', 216),
+    target: store.get('target', 216),
+    profile: null,
+    weights: null,
+  };
+  state.profile = store.get('profile:' + state.voc, E.DEFAULT_PROFILE[state.voc]);
+  state.weights = store.get('weights:' + state.voc, null) || { ...E.PROFILES[state.profile].w };
+
+  const $ = (id) => document.getElementById(id);
+  const fmt = (n, d = 0) => Number(n).toLocaleString('pt-BR', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
+  // ---------- controles ----------
+  const vocBox = $('voc');
+  for (const v of VOC) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = v.label;
+    b.dataset.voc = v.id;
+    b.addEventListener('click', () => {
+      state.voc = v.id;
+      state.profile = store.get('profile:' + v.id, E.DEFAULT_PROFILE[v.id]);
+      state.weights = store.get('weights:' + v.id, null) || { ...E.PROFILES[state.profile].w };
+      store.set('voc', v.id);
+      syncControls();
+      schedule();
+    });
+    vocBox.appendChild(b);
+  }
+  const profSel = $('profile');
+  for (const [k, p] of Object.entries(E.PROFILES)) {
+    const o = document.createElement('option');
+    o.value = k; o.textContent = p.label;
+    profSel.appendChild(o);
+  }
+  profSel.addEventListener('change', () => {
+    state.profile = profSel.value;
+    state.weights = { ...E.PROFILES[state.profile].w };
+    store.set('profile:' + state.voc, state.profile);
+    store.set('weights:' + state.voc, null);
+    syncControls();
+    schedule();
+  });
+  const clampLv = (v) => Math.max(51, Math.min(4050, Math.round(Number(v) || 51)));
+  $('level').addEventListener('input', () => {
+    const lv = clampLv($('level').value);
+    const followed = state.target === state.level;
+    state.level = lv;
+    if (followed || state.target < lv) { state.target = lv; $('target').value = lv; }
+    store.set('level', state.level); store.set('target', state.target);
+    schedule();
+  });
+  $('target').addEventListener('input', () => {
+    state.target = Math.max(state.level, clampLv($('target').value));
+    store.set('target', state.target);
+    schedule();
+  });
+  $('target').addEventListener('change', () => { $('target').value = state.target; });
+  $('level').addEventListener('change', () => { $('level').value = state.level; });
+
+  const wBox = $('weights');
+  const sliders = {};
+  for (const [k, name] of CATS) {
+    const l = document.createElement('label');
+    l.innerHTML = `<span>${name}</span><input type="range" min="0" max="1" step="0.05" id="w-${k}"><span class="num small muted" id="wv-${k}"></span>`;
+    wBox.appendChild(l);
+    const r = l.querySelector('input');
+    sliders[k] = r;
+    r.addEventListener('input', () => {
+      state.weights[k] = Number(r.value);
+      $('wv-' + k).textContent = Number(r.value).toFixed(2);
+      store.set('weights:' + state.voc, state.weights);
+      schedule();
+    });
+  }
+  $('reset-w').addEventListener('click', () => {
+    state.weights = { ...E.PROFILES[state.profile].w };
+    store.set('weights:' + state.voc, null);
+    syncControls();
+    schedule();
+  });
+
+  function syncControls() {
+    for (const b of vocBox.children) b.setAttribute('aria-pressed', String(b.dataset.voc === state.voc));
+    profSel.value = state.profile;
+    $('level').value = state.level;
+    $('target').value = state.target;
+    for (const [k] of CATS) {
+      sliders[k].value = state.weights[k];
+      $('wv-' + k).textContent = Number(state.weights[k]).toFixed(2);
+    }
+  }
+
+  // ---------- cálculo (em segundo plano) ----------
+  // Até o nível 700 testa todas as combinações (ótimo exato); acima, busca completa (DP + feixe + busca local).
+  let worker = null, reqId = 0, timer = null;
+  try {
+    const src = document.getElementById('engine').textContent + `
+      self.onmessage = (ev) => {
+        const { id, voc, target, level, weights } = ev.data;
+        const E = self.WheelEngine;
+        let plan = target <= 700 ? E.exactSearch(target, voc, weights) : null;
+        if (!plan) plan = Object.assign(E.optimize(target, voc, weights, { heavy: true }), { exact: false });
+        const compare = Object.entries(E.PROFILES).map(([k, p]) => ({ k, points: E.optimize(level, voc, p.w).points }));
+        self.postMessage({ id, plan, compare });
+      };`;
+    worker = new Worker(URL.createObjectURL(new Blob([src], { type: 'text/javascript' })));
+    worker.onmessage = (ev) => { if (ev.data.id === reqId) show(ev.data.plan, ev.data.compare); };
+    worker.onerror = () => { worker = null; schedule(); };
+  } catch { worker = null; }
+
+  function schedule() {
+    $('result').classList.add('busy');
+    $('quality').textContent = 'Calculando…';
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      const msg = { id: ++reqId, voc: state.voc, target: state.target, level: state.level, weights: { ...state.weights } };
+      if (worker) { worker.postMessage(msg); return; }
+      // sem worker: calcula aqui mesmo
+      const E2 = E;
+      let plan = msg.target <= 700 ? E2.exactSearch(msg.target, msg.voc, msg.weights) : null;
+      if (!plan) plan = Object.assign(E2.optimize(msg.target, msg.voc, msg.weights, { heavy: true }), { exact: false });
+      const compare = Object.entries(E2.PROFILES).map(([k, p]) => ({ k, points: E2.optimize(msg.level, msg.voc, p.w).points }));
+      show(plan, compare);
+    }, 120);
+  }
+
+  function show(plan, compare) {
+    const voc = state.voc;
+    const now = E.pointsAtLevel(plan.order, state.level);
+    renderWheel(now, plan.points);
+    renderSummary(now, voc);
+    renderSteps(plan, voc);
+    renderCompare(voc, compare, plan);
+    $('pts-now').textContent = fmt(state.level - 50);
+    $('quality').textContent = plan.exact
+      ? `Ótimo exato · ${fmt(plan.sets)} combinações testadas`
+      : 'Melhor build encontrada (busca completa)';
+    $('result').classList.remove('busy');
+  }
+
+  // ---------- roda (SVG gerado) ----------
+  const CX = 260, CY = 260;
+  const RADII = [[38, 78], [80, 122], [124, 166], [168, 206], [208, 246]];
+  const SPAN = { green: [270, 180], red: [270, 360], purple: [360, 450], blue: [180, 90] };
+  const pol = (r, deg) => { const a = deg * Math.PI / 180; return [CX + r * Math.cos(a), CY + r * Math.sin(a)]; };
+  function sector(r0, r1, a0, a1) {
+    const [lo, hi] = a0 < a1 ? [a0, a1] : [a1, a0];
+    const p1 = pol(r1, lo), p2 = pol(r1, hi), p3 = pol(r0, hi), p4 = pol(r0, lo);
+    const large = hi - lo > 180 ? 1 : 0;
+    return `M${p1[0].toFixed(2)} ${p1[1].toFixed(2)} A${r1} ${r1} 0 ${large} 1 ${p2[0].toFixed(2)} ${p2[1].toFixed(2)} L${p3[0].toFixed(2)} ${p3[1].toFixed(2)} A${r0} ${r0} 0 ${large} 0 ${p4[0].toFixed(2)} ${p4[1].toFixed(2)} Z`;
+  }
+  function sliceGeom(s) {
+    const [aTop, aEnd] = SPAN[s.color];
+    const n = [1, 2, 3, 2, 1][s.ring - 1];
+    const step = (aEnd - aTop) / n;
+    const a0 = aTop + step * s.pos + (step > 0 ? 0.8 : -0.8);
+    const a1 = aTop + step * (s.pos + 1) - (step > 0 ? 0.8 : -0.8);
+    const [r0, r1] = RADII[s.ring - 1];
+    return { a0, a1, r0, r1, mid: (a0 + a1) / 2, rm: (r0 + r1) / 2 };
+  }
+  function renderWheel(now, final) {
+    const svg = $('wheel');
+    const ns = 'http://www.w3.org/2000/svg';
+    svg.replaceChildren();
+    const colorOf = (c) => css('--' + c);
+    const line = css('--line'), fg = css('--fg'), muted = css('--muted'), surface2 = css('--surface-2');
+    for (const s of E.SLICES) {
+      const g = sliceGeom(s);
+      const p = now[s.index], f = final[s.index];
+      const base = document.createElementNS(ns, 'path');
+      base.setAttribute('d', sector(g.r0, g.r1, g.a0, g.a1));
+      base.setAttribute('fill', surface2);
+      base.setAttribute('stroke', line);
+      svg.appendChild(base);
+      if (f > p) { // planejado para depois
+        const plan = document.createElementNS(ns, 'path');
+        plan.setAttribute('d', sector(g.r0, g.r1, g.a0, g.a1));
+        plan.setAttribute('fill', colorOf(s.color));
+        plan.setAttribute('fill-opacity', '0.18');
+        plan.setAttribute('stroke', colorOf(s.color));
+        plan.setAttribute('stroke-dasharray', '3 3');
+        svg.appendChild(plan);
+      }
+      if (p > 0) { // preenchimento proporcional (raio)
+        const frac = p / s.tier;
+        const r1 = g.r0 + (g.r1 - g.r0) * frac;
+        const fill = document.createElementNS(ns, 'path');
+        fill.setAttribute('d', sector(g.r0, r1, g.a0, g.a1));
+        fill.setAttribute('fill', colorOf(s.color));
+        fill.setAttribute('fill-opacity', frac >= 1 ? '0.9' : '0.55');
+        svg.appendChild(fill);
+      }
+      const [tx, ty] = pol(g.rm, g.mid);
+      const t = document.createElementNS(ns, 'text');
+      t.setAttribute('x', tx.toFixed(1));
+      t.setAttribute('y', (ty + 4).toFixed(1));
+      t.setAttribute('text-anchor', 'middle');
+      t.setAttribute('font-size', '11');
+      t.setAttribute('font-family', 'IBM Plex Sans, system-ui, sans-serif');
+      t.setAttribute('fill', p >= s.tier ? css('--on-slice') : (p > 0 ? fg : muted));
+      t.textContent = p > 0 ? (p >= s.tier ? String(s.tier) : `${p}/${s.tier}`) : String(s.tier);
+      const title = document.createElementNS(ns, 'title');
+      title.textContent = `${COLOR_PT[s.color]} ${s.tier}: ${STAT_PT[s.stat]} (${p}/${s.tier}) — cheia: ${fullText(s, state.voc)}`;
+      t.appendChild(title);
+      svg.appendChild(t);
+    }
+    // marcadores de revelação nos cantos
+    const sum = E.summarize(now, state.voc);
+    for (const c of E.COLORS) {
+      const ang = { green: 225, red: 315, purple: 45, blue: 135 }[c];
+      const [x, y] = pol(18, ang);
+      const circ = document.createElementNS(ns, 'circle');
+      circ.setAttribute('cx', x.toFixed(1)); circ.setAttribute('cy', y.toFixed(1)); circ.setAttribute('r', '11');
+      circ.setAttribute('fill', sum.stages[c] > 0 ? colorOf(c) : surface2);
+      circ.setAttribute('stroke', colorOf(c));
+      svg.appendChild(circ);
+      const tt = document.createElementNS(ns, 'text');
+      tt.setAttribute('x', x.toFixed(1)); tt.setAttribute('y', (y + 4).toFixed(1));
+      tt.setAttribute('text-anchor', 'middle'); tt.setAttribute('font-size', '11'); tt.setAttribute('font-weight', '600');
+      tt.setAttribute('font-family', 'IBM Plex Sans, system-ui, sans-serif');
+      tt.setAttribute('fill', sum.stages[c] > 0 ? css('--on-slice') : muted);
+      tt.textContent = String(sum.stages[c]);
+      svg.appendChild(tt);
+    }
+    $('legend').innerHTML = E.COLORS.map((c) => `<span><i class="sw" style="background:var(--${c})"></i>${COLOR_PT[c]}</span>`).join('')
+      + '<span>Tracejado: planejado para depois</span><span>Centro: estágio de revelação</span>';
+  }
+
+  function fullText(s, voc) {
+    const k = s.full.kind;
+    if (k === 'spell') return 'Augmented ' + E.SPELLS[voc][s.full.spell].name;
+    if (k === 'mana-leech') return '+0,25% Mana Leech';
+    if (k === 'life-leech') return '+0,75% Life Leech';
+    if (k === 'skill' || k === 'vessel') return '+1 ' + E.SKILL_NAME[voc];
+    if (k === 'dedication') return E.DEDICATION[voc][s.color];
+    return '';
+  }
+
+  // ---------- resumo ----------
+  function renderSummary(points, voc) {
+    const s = E.summarize(points, voc);
+    const tiles = [
+      ['Pontos de vida', '+' + fmt(s.health)],
+      ['Mana', '+' + fmt(s.mana)],
+      ['Capacidade', '+' + fmt(s.capacity)],
+      ['Mitigation', '+' + fmt(s.mitigation, 2) + '%'],
+      ['Life leech', '+' + fmt(s.lifeLeech, 2) + '%'],
+      ['Mana leech', '+' + fmt(s.manaLeech, 2) + '%'],
+      ['Skill (' + E.SKILL_NAME[voc] + ')', '+' + s.skill],
+      ['Dano e cura', '+' + s.flat],
+    ];
+    $('stats').innerHTML = tiles.map(([k, v]) => `<div class="stat"><span class="label">${k}</span><b>${v}</b></div>`).join('');
+
+    $('spells').innerHTML = ['A', 'B', 'C', 'D', 'E'].map((k) => {
+      const sp = E.SPELLS[voc][k];
+      const g = Math.min(2, s.spells[k]);
+      const det = g === 0 ? 'não aumentada' : g === 1 ? sp.g1 : sp.g1 + ' · ' + sp.g2;
+      return `<span class="chip ${g ? 'on' : ''}"><b>${sp.name}</b><i>${g ? 'grau ' + g + ': ' : ''}${det}</i></span>`;
+    }).join('');
+
+    const ded = ['green', 'purple'].map((c) => {
+      const name = E.DEDICATION[voc][c];
+      return `<span class="chip ${s.dedication[c] ? 'on' : ''}" title="${E.PERK_TEXT[name] || ''}"><b>${name}</b><i>${s.dedication[c] ? 'ativo' : 'inativo'}</i></span>`;
+    });
+    $('perks').innerHTML = ded.join('');
+
+    $('rev').innerHTML = E.COLORS.map((c) => {
+      const name = E.REVELATION[voc][c];
+      const st = s.stages[c];
+      const next = E.STAGE_AT[st];
+      const pips = [0, 1, 2].map((i) => `<i class="pip ${i < st ? 'on' : ''}"></i>`).join('');
+      return `<div style="border-left-color:var(--${c}); color:var(--fg)">
+        <span class="label" style="color:var(--${c})">${COLOR_PT[c]} · ${fmt(s.colorPoints[c])} pts</span>
+        <b>${name}</b>
+        <span class="pips" style="color:var(--${c})">${pips}</span>
+        <span class="small muted">${st ? 'Estágio ' + st + ' · +' + E.STAGE_FLAT[st - 1] + ' dano e cura' : 'Bloqueado'}${next ? ' · próximo em ' + fmt(next) : ''}</span>
+        <span class="small muted">${E.PERK_TEXT[name] || ''}</span>
+      </div>`;
+    }).join('');
+  }
+
+  // ---------- passo a passo ----------
+  function renderSteps(plan, voc) {
+    const nowTotal = state.level - 50;
+    let used = 0;
+    const rows = [];
+    plan.order.forEach((st, i) => {
+      const s = E.SLICES[st.index];
+      const before = used;
+      used += st.points;
+      const later = used > nowTotal;
+      const partial = st.points < s.tier;
+      const gives = partial ? 'Só o bônus por ponto (' + STAT_PT[s.stat] + ')' : fullText(s, voc) + ' + ' + STAT_PT[s.stat];
+      const ptsText = later && before < nowTotal ? `${nowTotal - before} agora, ${st.points} no total` : `${st.points}${partial ? '' : ' (cheia)'}`;
+      rows.push(`<tr class="${later && before >= nowTotal ? 'later' : ''}">
+        <td class="num">${i + 1}</td>
+        <td><span class="dot" style="background:var(--${s.color})"></span>${COLOR_PT[s.color]} ${s.tier}</td>
+        <td class="num">${ptsText}</td>
+        <td>${gives}</td>
+        <td class="num">${fmt(Math.min(used, plan.total))} / ${fmt(plan.total)}</td>
+      </tr>`);
+    });
+    $('steps').innerHTML = rows.join('') || '<tr><td colspan="5" class="muted">A roda abre no nível 51.</td></tr>';
+  }
+
+  // ---------- comparação ----------
+  function renderCompare(voc, compare, plan) {
+    const w = state.weights;
+    const rows = compare.map((c) => ({ label: E.PROFILES[c.k].label, points: c.points }));
+    // a sua configuração no nível atual (prefixo da build planejada)
+    rows.push({ label: 'Sua configuração', points: E.pointsAtLevel(plan.order, state.level), mine: true });
+    for (const r of rows) r.value = E.score(r.points, voc, w);
+    const max = Math.max(...rows.map((r) => r.value), 1e-9);
+    $('compare').innerHTML = rows.map((r) => {
+      const s = E.summarize(r.points, voc);
+      const spells = ['A', 'B', 'C', 'D', 'E'].filter((k) => s.spells[k] > 0).map((k) => E.SPELLS[voc][k].name + ' ' + Math.min(2, s.spells[k])).join(', ') || 'nenhuma magia';
+      return `<div class="block">
+        <div style="display:flex;justify-content:space-between;gap:8px"><b>${r.label}</b><span class="num muted">${fmt(100 * r.value / max)}%</span></div>
+        <div class="bar"><i style="width:${(100 * r.value / max).toFixed(1)}%"></i></div>
+        <span class="small muted">${spells} · +${fmt(s.health)} HP · +${fmt(s.mana)} mana</span>
+      </div>`;
+    }).join('');
+  }
+
+  // primeira tela imediata (rápida), depois o cálculo completo substitui
+  syncControls();
+  {
+    const quick = E.optimize(state.target, state.voc, state.weights);
+    const compare = Object.entries(E.PROFILES).map(([k]) => ({ k, points: quick.points }));
+    show(Object.assign(quick, { exact: false }), compare);
+  }
+  schedule();
+  // re-renderiza a roda quando o tema muda (cores do SVG vêm dos tokens)
+  const rerender = () => schedule();
+  try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', rerender); } catch {}
+  new MutationObserver(rerender).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+})();
+</script>
+</body></html>
