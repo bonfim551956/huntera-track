@@ -169,6 +169,20 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
       <label class="label" for="profile">Objetivo da build</label>
       <select id="profile"></select>
     </div>
+    <div class="field" id="f-pack">
+      <label class="label" for="pack">Monstros no pull</label>
+      <select id="pack">
+        <option value="2">2</option><option value="4">4</option><option value="5">5</option><option value="6">6</option>
+        <option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option>
+        <option value="12">12</option><option value="14">14</option>
+      </select>
+    </div>
+    <div class="field" id="f-dist">
+      <label class="label" for="dist">Distância dos magos</label>
+      <select id="dist">
+        <option value="2">2 sqm</option><option value="3">3 sqm</option><option value="4">4 sqm</option><option value="5">5 sqm</option>
+      </select>
+    </div>
     <div class="pts">
       <span class="label">Pontos agora</span>
       <strong id="pts-now">166</strong>
@@ -228,7 +242,7 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
     </div>
   </section>
 
-  <p class="note small">Regras e números da roda vêm do cliente oficial do Huntera e foram conferidos contra as próprias funções do jogo. O que é estimativa é o peso de cada bônus (por exemplo, quanto vale +10% numa magia versus um perk de revelação), porque o jogo não publica o dano de cada magia. Por isso dá para ajustar os pesos. O perfil <b>Dano máximo</b> conta só o dano a mais de cada bônus; os Avatares valem pouco nele porque, no jogo, recarregam a cada 2 horas.</p>
+  <p class="note small">Regras e números da roda vêm do cliente oficial do Huntera e foram conferidos contra as próprias funções do jogo. O que é estimativa é o peso de cada bônus (por exemplo, quanto vale +10% numa magia versus um perk de revelação), porque o jogo não publica o dano de cada magia. Por isso dá para ajustar os pesos. O perfil <b>Dano máximo</b> simula 10 minutos de caçada: uma magia de ataque a cada 2 segundos, sempre a de maior dano disponível, com o tempo de espera, a área e os aumentos de cada magia do cliente, as magias que a roda libera (exori amp kor, Ice Burst, Great Death Beam, Divine Grenade) e as fórmulas de dano do Canary. Por isso ele depende de quantos monstros vêm no pull e de quão longe os magos ficam. Os Avatares valem pouco porque recarregam a cada 2 horas.</p>
 </div>
 
 <script id="engine">
@@ -542,10 +556,170 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
       'Twin Burst': [{ dano: 5 }, { dano: 7 }, { dano: 9 }],
     },
   };
+
+  // ---------- Simulador de dano (perfil Dano máximo) ----------
+  // Roda 10 minutos de rotação: uma magia de ataque a cada 2s (espera dividida), sempre a de maior dano
+  // disponível, com o cooldown, a área e os aumentos do cliente do Huntera e as fórmulas de dano do Canary.
+  const SIM = (() => {
+    const circle = (e) => { const r = []; for (let o = -e; o <= e; o++) for (let t = -e; t <= e; t++) if (t * t + o * o <= e * e + 1 && (t || o)) r.push([t, o]); return r; };
+    const diamond = (e) => { const r = []; for (let o = -e; o <= e; o++) for (let t = -e; t <= e; t++) if (Math.abs(t) + Math.abs(o) <= e && (t || o)) r.push([t, o]); return r; };
+    const T = {
+      a1: circle(1), a3: circle(3), a4ring: circle(4).filter(([e, r]) => Math.max(Math.abs(e), Math.abs(r)) >= 2), n5: diamond(5), n6: diamond(6),
+      front: [[-1, -1], [0, -1], [1, -1]],
+      frontBig: [[-1, -1], [0, -1], [1, -1], [-2, -1], [2, -1], [-1, -2], [0, -2], [1, -2]],
+      wave: [[0, -1], [-1, -2], [0, -2], [1, -2], [-1, -3], [0, -3], [1, -3], [-1, -4], [0, -4], [1, -4]],
+      waveBig: [[0, -1], [-1, -2], [0, -2], [1, -2], [-2, -3], [-1, -3], [0, -3], [1, -3], [2, -3], [-2, -4], [-1, -4], [0, -4], [1, -4], [2, -4]],
+      gfw: [[-1, -1], [0, -1], [1, -1], [-1, -2], [0, -2], [1, -2], [-2, -3], [-1, -3], [0, -3], [1, -3], [2, -3], [-2, -4], [-1, -4], [0, -4], [1, -4], [2, -4]],
+      beam: [[0, -1], [0, -2], [0, -3], [0, -4], [0, -5]],
+      beamLong: [[0, -1], [0, -2], [0, -3], [0, -4], [0, -5], [0, -6], [0, -7]],
+    };
+    function packTiles(n) {
+      const r1 = [[-1, -1], [0, -1], [1, -1], [-1, 0], [1, 0], [-1, 1], [0, 1], [1, 1]];
+      const r2 = [];
+      for (let y = -2; y <= 2; y++) for (let x = -2; x <= 2; x++) if (Math.max(Math.abs(x), Math.abs(y)) === 2) r2.push([x, y]);
+      r2.sort((a, b) => (a[0] * a[0] + a[1] * a[1]) - (b[0] * b[0] + b[1] * b[1]));
+      return r1.concat(r2).slice(0, n);
+    }
+    function hitsAt(shape, mobs, dist) { const set = new Set(mobs.map(([x, y]) => x + ',' + y)); let n = 0; for (const [x, y] of shape) if (set.has(x + ',' + (y + dist))) n++; return n; }
+    function hitsKnight(shape, mobs) {
+      const set = new Set(mobs.map(([x, y]) => x + ',' + y)); let best = 0;
+      for (const [a, b, c, d] of [[1, 0, 0, 1], [0, -1, 1, 0], [-1, 0, 0, -1], [0, 1, -1, 0]]) { let n = 0; for (const [x, y] of shape) if (set.has((a * x + b * y) + ',' + (c * x + d * y))) n++; best = Math.max(best, n); }
+      return best;
+    }
+    const avg = (a, b) => (a + b) / 2;
+    function spells(voc, lv, sk, ml, A) {
+      const L = lv / 5, st = sk * A;
+      if (voc === 'knight') return [
+        { id: 'berserk', cd: 4, shape: 'a1', dmg: avg(L + (sk + A) * 0.5, L + (sk + A) * 1.5) },
+        { id: 'fierce-berserk', cd: 6, shape: 'a1', dmg: avg(L + (sk + 2 * A) * 1.1, L + (sk + 2 * A) * 3), aug: 'E' },
+        { id: 'groundshaker', cd: 8, shape: 'a3', dmg: avg(L + (sk + A) * 0.5, L + (sk + A) * 1.1), aug: 'A' },
+        { id: 'front-sweep', cd: 6, shape: 'front', dmg: avg((st * 0.04 + 31 + L) * 1.1, (st * 0.08 + 45 + L) * 1.1), aug: 'C' },
+        { id: 'brutal-strike', cd: 6, shape: 'single', dmg: avg((st * 0.02 + 4 + L) * 1.28, (st * 0.04 + 9 + L) * 1.28) },
+        { id: 'annihilation', cd: 30, shape: 'single', dmg: avg((st * 0.17 + 13 + L) * 1.28, (st * 0.20 + 34 + L) * 1.28) },
+        { id: 'whirlwind-throw', cd: 6, shape: 'single', dmg: avg(L + (sk + A) / 3, L + sk + A) },
+        { id: 'executioners-throw', cd: 18, shape: 'bounce', dmg: avg((st * 0.17 + 17 + L) * 1.28, (st * 0.20 + 40 + L) * 1.28), rev: 'red' },
+      ];
+      if (voc === 'paladin') return [
+        { id: 'ethereal-spear', cd: 2, shape: 'single', dmg: avg(L + (sk + 25) / 3, L + sk + 25) },
+        { id: 'strong-ethereal-spear', cd: 8, shape: 'single', dmg: avg((2 * sk + A / 2500) * 2.30 + L + 7, (2 * sk + A / 1875) * 3.30 + L + 13), aug: 'A' },
+        { id: 'divine-caldera', cd: 4, shape: 'a3', self: true, dmg: avg(L + ml * 4, L + ml * 6), aug: 'E' },
+        { id: 'divine-missile', cd: 2, shape: 'single', dmg: avg(L + ml * 1.79 + 11, L + ml * 3 + 18) },
+        { id: 'divine-grenade', cd: 26, shape: 'grenade', dmg: avg(L + ml * 4, L + ml * 6), rev: 'red' },
+      ];
+      if (voc === 'sorcerer') return [
+        { id: 'great-fire-wave', cd: 4, shape: 'gfw', dmg: avg(L + ml * 2.8 + 16, L + ml * 4.4 + 28), aug: 'E' },
+        { id: 'energy-wave', cd: 8, shape: 'wave', dmg: avg(L + ml * 4.5, L + ml * 9), aug: 'B' },
+        { id: 'great-energy-beam', cd: 6, shape: 'beam', dmg: avg(L + ml * 4, L + ml * 7), beam: true },
+        { id: 'great-death-beam', cd: 10, shape: 'beam', dmg: avg(L + ml * 5.5, L + ml * 9), beam: true, rev: 'red' },
+        { id: 'rage-of-the-skies', cd: 40, shape: 'n6', self: true, dmg: avg(L + ml * 7, L + ml * 14), focus: true, aug: 'C' },
+        { id: 'hells-core', cd: 40, shape: 'n5', self: true, dmg: avg(L + ml * 10, L + ml * 14), focus: true, aug: 'C', sharedWith: 'rage-of-the-skies' },
+        { id: 'ultimate-energy-strike', cd: 30, shape: 'single', dmg: avg(L + ml * 4.5 + 35, L + ml * 7.3 + 55) },
+        { id: 'strong-energy-strike', cd: 8, shape: 'single', dmg: avg(L + ml * 2.8 + 16, L + ml * 4.4 + 28) },
+        { id: 'energy-strike', cd: 2, shape: 'single', dmg: avg(L + ml * 1.403 + 8, L + ml * 2.203 + 13) },
+      ];
+      return [
+        { id: 'terra-wave', cd: 4, shape: 'wave', dmg: avg(L + ml * 3.5, L + ml * 7), aug: 'B' },
+        { id: 'strong-ice-wave', cd: 8, shape: 'wave', dmg: avg(L + ml * 4.5 + 20, L + ml * 7.6 + 48), aug: 'C' },
+        { id: 'eternal-winter', cd: 40, shape: 'n5', self: true, dmg: avg(L + ml * 6, L + ml * 12) },
+        { id: 'wrath-of-nature', cd: 40, shape: 'n6', self: true, dmg: avg(L + ml * 5, L + ml * 10), sharedWith: 'eternal-winter' },
+        { id: 'ice-burst', cd: 22, shape: 'a4ring', self: true, dmg: avg(L + ml * 7, L + ml * 10.5), rev: 'blue' },
+        { id: 'ultimate-ice-strike', cd: 30, shape: 'single', dmg: avg(L + ml * 4.5 + 35, L + ml * 7.3 + 55) },
+        { id: 'strong-ice-strike', cd: 8, shape: 'single', dmg: avg(L + ml * 2.8 + 16, L + ml * 4.4 + 28) },
+        { id: 'ice-strike', cd: 2, shape: 'single', dmg: avg(L + ml * 1.403 + 8, L + ml * 2.203 + 13) },
+      ];
+    }
+    const AUG = { knight: { A: [['cd', 2], ['dmg', 12.5]], C: [['dmg', 40], ['area']], E: [['mana'], ['dmg', 10]] },
+      paladin: { A: [['cd', 2], ['dmg', 380]], E: [['mana'], ['dmg', 10]] },
+      sorcerer: { B: [['area'], ['dmg', 10]], C: [['dmg', 5], ['cd', 4]], E: [['crit', 15], ['dmg', 5]] },
+      druid: { B: [['dmg', 6.5], ['ll']], C: [['dmg', 6], ['area']] } };
+    function dano(voc, s, c) {
+      const mobs = packTiles(c.pack);
+      const adj = mobs.filter(([x, y]) => Math.max(Math.abs(x), Math.abs(y)) === 1).length;
+      const melee = voc === 'knight' || voc === 'paladin';
+      let sk = c.skill + (melee ? s.skill : 0);
+      const ml = (voc === 'paladin' ? c.mlPaladin : c.ml) + (melee ? 0 : s.skill);
+      if (voc === 'knight' && s.dedication.green && adj >= 5) sk += Math.min(adj, 8) - 4; // Battle Instinct
+      if (voc === 'paladin' && s.dedication.green) sk += 3; // Positional Tactics
+      const flat = s.flat;
+      let mult = 1;
+      if (voc === 'knight' && s.stages.blue > 0) { // Combat Mastery: +1% a cada 12/12/10% de vida perdida do alvo
+        const per = [12, 12, 10][s.stages.blue - 1]; let acc = 0;
+        for (let i = 0; i < 100; i++) acc += Math.floor((i + 0.5) / per);
+        mult *= 1 + acc / 100 / 100;
+      }
+      if (voc === 'paladin' && s.dedication.purple) mult *= 1.02; // Ballistic Mastery
+      if (voc === 'paladin' && s.stages.blue > 0) mult *= 1 + [0.08, 0.10, 0.12][s.stages.blue - 1] * (5 / 32); // Divine Empowerment
+      const list = spells(voc, c.level, sk, ml, c.attack).filter((sp) => !sp.rev || s.stages[sp.rev] > 0);
+      const dist = voc === 'knight' ? 0 : c.dist;
+      for (const sp of list) {
+        let shape = sp.shape, m = 1, cd = sp.cd;
+        if (sp.aug) {
+          const g = s.spells[sp.aug] || 0; const def = (AUG[voc][sp.aug]) || [[], []];
+          for (const f of g >= 2 ? def : g >= 1 ? [def[0]] : []) {
+            if (f[0] === 'cd') cd -= f[1];
+            if (f[0] === 'dmg') m *= 1 + f[1] / 100;
+            if (f[0] === 'crit') m *= 1 + c.critChance * f[1] / 100;
+            if (f[0] === 'area') shape = shape === 'front' ? 'frontBig' : shape === 'wave' ? 'waveBig' : shape;
+          }
+        }
+        if (sp.beam && voc === 'sorcerer' && s.stages.red > 0) { m *= 1 + [0.10, 0.12, 0.14][s.stages.red - 1]; shape = 'beamLong'; }
+        if (sp.id === 'divine-grenade') m *= 1 + [0.3, 0.6, 1.0][s.stages.red - 1];
+        if (sp.id === 'executioners-throw') m *= 1 + 0.3 * [1.0, 1.25, 1.5][s.stages.red - 1];
+        if (sp.id === 'ice-burst') m *= 1 + 0.4 * [0.2, 0.4, 0.6][s.stages.blue - 1];
+        let n;
+        if (shape === 'single') n = 1;
+        else if (shape === 'bounce') n = Math.min(c.pack, [2, 3, 4][s.stages.red - 1]);
+        else if (shape === 'grenade') n = Math.min(c.pack, 5);
+        else if (voc === 'knight') n = hitsKnight(T[shape], mobs);
+        else n = hitsAt(T[shape], mobs, sp.self ? dist : dist);
+        sp.n = n; sp.cdEff = cd; sp.perCast = n * (sp.dmg * m + flat);
+      }
+      const ready = {}; for (const sp of list) ready[sp.id] = 0;
+      let total = 0, focus = 0;
+      for (let t = 0; t < 600; t += 2) {
+        let best = null;
+        for (const sp of list) if (ready[sp.id] <= t + 1e-9 && sp.perCast > 0 && (!best || sp.perCast > best.perCast)) best = sp;
+        if (!best) continue;
+        let d = best.perCast;
+        if (focus > t && !best.focus) { d *= 1.35; focus = 0; }
+        total += d;
+        ready[best.id] = t + best.cdEff;
+        if (best.sharedWith) ready[best.sharedWith] = Math.max(ready[best.sharedWith], t + best.cdEff);
+        for (const o of list) if (o.sharedWith === best.id) ready[o.id] = Math.max(ready[o.id], t + best.cdEff);
+        if (best.focus && voc === 'sorcerer' && s.dedication.purple) focus = t + 12; // Focus Mastery
+        if (best.beam && voc === 'sorcerer' && s.stages.red > 0) { const cut = Math.min(3, best.n); for (const o of list) if (o !== best) ready[o.id] -= cut; } // Beam Mastery
+      }
+      const L = c.level / 5;
+      const auto = melee ? (L + ((sk / 4 + 1) * (c.attack / 3)) * 1.03) / 2 + flat : 65 + flat;
+      return (total + 300 * auto) * mult;
+    }
+    const cache = new Map();
+    function cenario(level, w) {
+      const lv = Math.max(51, Math.round(level));
+      const base = Math.min(140, Math.round(95 + lv * 0.05));
+      return { level: lv, skill: base, ml: base, mlPaladin: Math.round(20 + lv / 35), attack: 50, pack: Math.max(1, Math.min(25, +w.pack || 8)), dist: Math.max(1, Math.min(6, +w.dist || 3)), critChance: 0.10 };
+    }
+    // ganho de dano em % sobre a roda vazia
+    function ganho(voc, s, level, w) {
+      const c = cenario(level, w);
+      const kc = voc + '|' + c.level + '|' + c.pack + '|' + c.dist;
+      const k = kc + '|' + s.skill + '|' + JSON.stringify(s.spells) + JSON.stringify(s.dedication) + JSON.stringify(s.stages) + '|' + s.flat;
+      let v = cache.get(k);
+      if (v === undefined) {
+        let b = cache.get(kc);
+        if (b === undefined) { b = dano(voc, { skill: 0, spells: { A: 0, B: 0, C: 0, D: 0, E: 0 }, dedication: { green: false, purple: false }, stages: { green: 0, red: 0, purple: 0, blue: 0 }, flat: 0 }, c); cache.set(kc, b); }
+        v = (dano(voc, s, c) / b - 1) * 100;
+        if (cache.size > 200000) cache.clear();
+        cache.set(k, v);
+      }
+      return v;
+    }
+    return { ganho, cenario, dano };
+  })();
   const VALS = (w) => (w && w.puro ? VALUES_DANO : VALUES);
 
   const PROFILES = {
-    danoMax: { label: 'Dano máximo (recomendado)', w: { puro: true, dano: 1, defesa: 0.02, cura: 0, sustento: 0.05, utilidade: 0 } },
+    danoMax: { label: 'Dano máximo (recomendado)', w: { puro: true, sim: true, pack: 8, dist: 3, dano: 1, defesa: 0.02, cura: 0, sustento: 0.05, utilidade: 0 } },
     dano: { label: 'Dano com defesa (hunt em party)', w: { dano: 1, defesa: 0.4, cura: 0.3, sustento: 0.6, utilidade: 0.1 } },
     tank: { label: 'Tank / sobrevivência', w: { dano: 0.5, defesa: 1, cura: 0.6, sustento: 0.8, utilidade: 0.2 } },
     cura: { label: 'Cura / suporte', w: { dano: 0.4, defesa: 0.6, cura: 1, sustento: 0.8, utilidade: 0.2 } },
@@ -555,8 +729,23 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 
   const dot = (v, w) => (v.dano || 0) * w.dano + (v.defesa || 0) * w.defesa + (v.cura || 0) * w.cura + (v.sustento || 0) * w.sustento + (v.utilidade || 0) * w.utilidade;
 
+  // Dano máximo: o dano vem do simulador; o resto (defesa, leech) da tabela, com peso pequeno
   function score(points, voc, w) {
-    const s = summarize(points, voc);
+    if (w && w.sim) {
+      const s = summarize(points, voc);
+      const lv = w._lv || (points.reduce((a, b) => a + b, 0) + 50);
+      let total = scoreTabela(s, voc, Object.assign({}, w, { dano: 0 }));
+      total += (w.dano || 0) * SIM.ganho(voc, s, lv, w);
+      for (const c of COLORS) { // avatares (recarga de 2 h) ficam fora do simulador
+        const st = s.stages[c]; const nm = REVELATION[voc][c];
+        if (st > 0 && /^Avatar/.test(nm)) total += (w.dano || 0) * (VALUES_DANO.revelation[nm][st - 1].dano || 0);
+      }
+      return total;
+    }
+    return scoreTabela(summarize(points, voc), voc, w);
+  }
+
+  function scoreTabela(s, voc, w) {
     let total = 0;
     const per = VALS(w).perPoint;
     const pp = PER_POINT[voc];
@@ -619,6 +808,23 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
     // 2) priorizar cada cor (para alcançar estágio de revelação)
     for (const c of COLORS) {
       tryOrder(cands.slice().sort((a, b) => (b.color === c) - (a.color === c) || statValuePerPoint(b, voc, w) - statValuePerPoint(a, voc, w)));
+    }
+    // 3) exato: para cada combinação de estágios a completar (em uma ou mais cores), coloca só o necessário
+    //    em cada cor e o resto no melhor stat por ponto
+    const ord = cands.slice().sort((a, b) => statValuePerPoint(b, voc, w) - statValuePerPoint(a, voc, w) || a.index - b.index);
+    const cp = {}, cap = {};
+    for (const c of COLORS) { cp[c] = 0; cap[c] = 0; }
+    for (const sl of SLICES) cp[sl.color] += points[sl.index];
+    for (const sl of ord) cap[sl.color] += sl.tier - points[sl.index];
+    const ops = COLORS.map((c) => { const o = [0]; for (const t of STAGE_AT) if (t > cp[c] && t - cp[c] <= cap[c] && t - cp[c] <= left) o.push(t - cp[c]); return o; });
+    for (const a of ops[0]) for (const b of ops[1]) for (const c2 of ops[2]) for (const d of ops[3]) {
+      const need = [a, b, c2, d];
+      if (a + b + c2 + d > left || (a + b + c2 + d === 0)) continue;
+      const p = points.slice(); let l = left;
+      COLORS.forEach((col, ci) => { let r = need[ci]; for (const sl of ord) { if (r <= 0) break; if (sl.color !== col) continue; const add = Math.min(r, sl.tier - p[sl.index]); p[sl.index] += add; r -= add; l -= add; } });
+      for (const sl of ord) { if (l <= 0) break; const add = Math.min(l, sl.tier - p[sl.index]); p[sl.index] += add; l -= add; }
+      const v = score(p, voc, w);
+      if (v > best.value + 1e-9) best = { points: p, value: v };
     }
     return best;
   }
@@ -1005,11 +1211,21 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
     return p;
   }
 
+  const comNivel = (w, level) => (w && w.sim ? Object.assign({}, w, { _lv: level }) : w);
+
   const api = {
     COLORS, SLICES, NEIGHBORS, UNLOCK_TOTAL, PER_POINT, SPELLS, DEDICATION, REVELATION, PERK_TEXT, SKILL_NAME,
     STAGE_AT, STAGE_FLAT, VALUES, PROFILES, DEFAULT_PROFILE,
-    openSlices, isLegal, summarize, score, optimize: (level, voc, w, opts) => optimizeBest(level, voc, w, opts), optimizeBest, optimizeExact, optimizeBeam, improve, exactSearch,
-    prefixAt, completeLeftover, buildOrder, pointsAtLevel,
+    openSlices, isLegal, summarize, score,
+    optimize: (level, voc, w, opts) => optimizeBest(level, voc, comNivel(w, level), opts),
+    optimizeBest: (level, voc, w, opts) => optimizeBest(level, voc, comNivel(w, level), opts),
+    optimizeExact: (level, voc, w) => optimizeExact(level, voc, comNivel(w, level)),
+    optimizeBeam: (level, voc, w, opts) => optimizeBeam(level, voc, comNivel(w, level), opts),
+    improve: (result, level, voc, w, opts) => improve(result, level, voc, comNivel(w, level), opts),
+    exactSearch: (level, voc, w, opts) => exactSearch(level, voc, comNivel(w, level), opts),
+    completeLeftover: (points, total, voc, w) => completeLeftover(points, total, voc, comNivel(w, total + 50)),
+    simGanho: (points, voc, w, level) => SIM.ganho(voc, summarize(points, voc), level, w || PROFILES.danoMax.w),
+    prefixAt, buildOrder, pointsAtLevel,
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.WheelEngine = api;
@@ -1043,6 +1259,9 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
   };
   state.profile = store.get('profile:' + state.voc, E.DEFAULT_PROFILE[state.voc]);
   state.weights = store.get('weights:' + state.voc, null) || { ...E.PROFILES[state.profile].w };
+  // versões antigas guardaram o Dano máximo sem o simulador: volta para o perfil atual
+  const migrar = () => { if (state.profile === 'danoMax' && !state.weights.sim) state.weights = { ...E.PROFILES.danoMax.w }; };
+  migrar();
 
   const $ = (id) => document.getElementById(id);
   const fmt = (n, d = 0) => Number(n).toLocaleString('pt-BR', { minimumFractionDigits: d, maximumFractionDigits: d });
@@ -1059,6 +1278,7 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
       state.voc = v.id;
       state.profile = store.get('profile:' + v.id, E.DEFAULT_PROFILE[v.id]);
       state.weights = store.get('weights:' + v.id, null) || { ...E.PROFILES[state.profile].w };
+      migrar();
       store.set('voc', v.id);
       syncControls();
       schedule();
@@ -1111,6 +1331,13 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
       schedule();
     });
   }
+  for (const id of ['pack', 'dist']) {
+    $(id).addEventListener('change', () => {
+      state.weights[id] = Number($(id).value);
+      store.set('weights:' + state.voc, state.weights);
+      schedule();
+    });
+  }
   $('reset-w').addEventListener('click', () => {
     state.weights = { ...E.PROFILES[state.profile].w };
     store.set('weights:' + state.voc, null);
@@ -1123,6 +1350,11 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
     profSel.value = state.profile;
     $('level').value = state.level;
     $('target').value = state.target;
+    const sim = !!state.weights.sim;
+    $('f-pack').hidden = !sim;
+    $('f-dist').hidden = !sim || state.voc === 'knight';
+    $('pack').value = String(state.weights.pack || 8);
+    $('dist').value = String(state.weights.dist || 3);
     for (const [k] of CATS) {
       sliders[k].value = state.weights[k];
       $('wv-' + k).textContent = Number(state.weights[k]).toFixed(2);
@@ -1375,4 +1607,5 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
   new MutationObserver(rerender).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 })();
 </script>
+
 </body></html>
